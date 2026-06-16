@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stretchy — Social Pricing Flow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #f0eee9; font-family: 'Inter', system-ui, sans-serif; color: #1A1A1A; }
+
+    @keyframes sBreath {
+      0%,100% { filter: none; }
+      50%     { filter: drop-shadow(0 0 8px rgba(255,209,102,0.15)); }
+    }
+    @keyframes menuSlideUp {
+      from { transform: translateY(-12px); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes menuFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <template id="__bundler_thumbnail" data-bg-color="#F5EDE3">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#7A8330"/>
+      <g transform="translate(490 200) scale(1.0)">
+        <path d="M0 0 Q40 -30 100 -10 Q160 10 200 -20 Q220 0 180 40 Q150 70 110 60 Q80 50 60 80 Q40 110 0 100 Q-30 90 -20 50 Q-10 20 0 0 Z" fill="#F5EDE3"/>
+      </g>
+      <text x="600" y="620" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="80" fill="#F5EDE3" letter-spacing="-2">STRETCHY</text>
+      <text x="600" y="690" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="28" fill="#F5EDE3" opacity="0.7">Social Movement Club</text>
+    </svg>
+  </template>
+  <div id="root"></div>
+
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script src="s-mark-svg.js"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="screens.jsx"></script>
+  <script type="text/babel" src="screens-attendee.jsx"></script>
+  <script type="text/babel" src="screens-host.jsx"></script>
+  <script type="text/babel" src="screens-admin.jsx"></script>
+  <script type="text/babel" src="screens-auth.jsx"></script>
+  <script type="text/babel" src="landing.jsx"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    // Each screen wrapped in an iPhone bezel + DCArtboard + the menu drawer.
+    // The 54px top spacer keeps screen content clear of the iOS status bar /
+    // dynamic island — nothing renders under battery/signal/time.
+    function Phone({ children, menuTab = 'attendee', currentId = null, menuOpen = false }) {
+      return (
+        <IOSDevice width={402} height={874} dark={false}>
+          <MenuProvider initialOpen={menuOpen}>
+            <div style={{ position: 'relative', minHeight: '100%', paddingTop: 54 }}>
+              {children}
+              <MenuOverlay defaultTab={menuTab} currentId={currentId} />
+            </div>
+          </MenuProvider>
+        </IOSDevice>
+      );
+    }
+
+    function App() {
+      const W = 402, H = 874;
+      return (
+        <DesignCanvas>
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* GET IN — welcome + login */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="landing"
+            title="Web · Landing"
+            subtitle="The marketing front door — stretchy.social/. The initial page to build; everything below is the in-app journey, which starts at Get In."
+          >
+            <DCArtboard id="00-landing" label="00 · Landing (stretchy.social/)" width={1280} height={5960}>
+              <Landing />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection
+            id="get-in"
+            title="Get In"
+            subtitle="The opening screen — the only place the full wordmark appears. Login is one screen with role tabs (some people are both)."
+          >
+            <DCArtboard id="a0a-welcome" label="A0a · Welcome (land on Stretchy)" width={W} height={H}>
+              <Phone><ScreenWelcome /></Phone>
+            </DCArtboard>
+            <DCArtboard id="login-attendee" label="Log in · Attendee" width={W} height={H}>
+              <Phone><ScreenLoginAttendee /></Phone>
+            </DCArtboard>
+            <DCArtboard id="login-host" label="Log in · Host" width={W} height={H}>
+              <Phone><ScreenLoginHost /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ONBOARDING — the 4-step new-user flow */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="onboard"
+            title="A0 · Onboarding"
+            subtitle="Four-step new-user setup: name → preferences → payment. Lands on Home (01) when done."
+          >
+            <DCArtboard id="a0b-signup" label="A0b · Sign up" width={W} height={H}>
+              <Phone><ScreenSignup /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a0c-prefs" label="A0c · Preferences" width={W} height={H}>
+              <Phone><ScreenPreferences /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a0d-payment" label="A0d · Payment" width={W} height={H}>
+              <Phone><ScreenOnboarding /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ATTENDEE — the funnel */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="funnel"
+            title="Attendee · The Funnel"
+            subtitle="Home → Browse → Session Detail. Where the pricing engine lives."
+          >
+            <DCArtboard id="01-home" label="01 · Home" width={W} height={H}>
+              <Phone><ScreenHome /></Phone>
+            </DCArtboard>
+            <DCArtboard id="01-home-menu" label="01 · Home · menu open" width={W} height={H}>
+              <Phone menuOpen><ScreenHome /></Phone>
+            </DCArtboard>
+            <DCArtboard id="02-thisweek" label="02 · This Week" width={W} height={H}>
+              <Phone><ScreenThisWeek /></Phone>
+            </DCArtboard>
+            <DCArtboard id="03-detail" label="03 · Session Detail (hero)" width={W} height={H}>
+              <Phone><ScreenSessionDetail /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ATTENDEE — hold + the 36h beat */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="moments"
+            title="Attendee · Hold → Confirmation"
+            subtitle="The emotional beats of the pricing engine. Hold today, confirmed at 36h, locked at 2h."
+          >
+            <DCArtboard id="04-held" label="04 · Place Held" width={W} height={H}>
+              <Phone><ScreenPlaceHeld /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a4-going" label="A4 · Going Ahead (36h push)" width={W} height={H}>
+              <Phone><ScreenGoingAhead /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a4b-cancelled" label="A4b · Cancelled (36h)" width={W} height={H}>
+              <Phone><ScreenCancelled /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ATTENDEE — post-session */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="after"
+            title="Attendee · Post-session"
+            subtitle="Social Stretch happens IRL — the app sits back and supports the moment."
+          >
+            <DCArtboard id="05-social" label="05 · Social Stretch" width={W} height={H}>
+              <Phone><ScreenSocialStretch /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a6-rate" label="A6 · Rate It (SSSSS)" width={W} height={H}>
+              <Phone><ScreenRateIt /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ATTENDEE — account */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="account"
+            title="Attendee · Account"
+            subtitle="Notifications, suggestions, and the profile shelf."
+          >
+            <DCArtboard id="a7-notifs" label="A7 · Notifications" width={W} height={H}>
+              <Phone><ScreenNotifications /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a8-suggest" label="A8 · Suggest a Stretchy" width={W} height={H}>
+              <Phone><ScreenSuggest /></Phone>
+            </DCArtboard>
+            <DCArtboard id="a9-profile" label="A9 · Profile" width={W} height={H}>
+              <Phone><ScreenProfile /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* HOST — onboarding + dashboard */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="host-setup"
+            title="Host · Apply + Dashboard + New Session"
+            subtitle="Money in yellow, formula transparent, full control of the target."
+          >
+            <DCArtboard id="06-apply" label="06 · Apply (host application)" width={W} height={H}>
+              <Phone><ScreenApply /></Phone>
+            </DCArtboard>
+            <DCArtboard id="09-dash" label="09 · Host Dashboard" width={W} height={H}>
+              <Phone><ScreenHostDashboard /></Phone>
+            </DCArtboard>
+            <DCArtboard id="07-add" label="07 · Add a Session (step 4)" width={W} height={H}>
+              <Phone><ScreenAddSession /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* HOST — running a session */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="host-run"
+            title="Host · Running a Session"
+            subtitle="Roster, the floor-not-met escape hatch, host inbox, and the monthly payout."
+          >
+            <DCArtboard id="h1-manage" label="H1 · Manage Session" width={W} height={H}>
+              <Phone><ScreenManageSession /></Phone>
+            </DCArtboard>
+            <DCArtboard id="08-floor" label="08 · Floor Not Met" width={W} height={H}>
+              <Phone><ScreenFloorNotMet /></Phone>
+            </DCArtboard>
+            <DCArtboard id="h3-inbox" label="H3 · Host Inbox" width={W} height={H}>
+              <Phone><ScreenHostInbox /></Phone>
+            </DCArtboard>
+            <DCArtboard id="h2-payout" label="H2 · Monthly Payout" width={W} height={H}>
+              <Phone><ScreenPayout /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          {/* ADMIN — Stretchy HQ on mobile */}
+          {/* ──────────────────────────────────────────────────────────────────────────────────────────── */}
+          <DCSection
+            id="admin-people"
+            title="Stretchy HQ · People + Pipeline"
+            subtitle="Vetting queue, live oversight, community pipeline. The platform on the go."
+          >
+            <DCArtboard id="adm-01" label="ADM-01 · Vetting Queue" width={W} height={H}>
+              <Phone><ScreenAdmVetting /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-02" label="ADM-02 · Live Platform" width={W} height={H}>
+              <Phone><ScreenAdmLive /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-03" label="ADM-03 · Suggestions" width={W} height={H}>
+              <Phone><ScreenAdmSuggestions /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection
+            id="admin-money"
+            title="Stretchy HQ · Money + CRM"
+            subtitle="Finance, attendee + host CRMs with health score, content moderation, analytics."
+          >
+            <DCArtboard id="adm-04" label="ADM-04 · Financial Dashboard" width={W} height={H}>
+              <Phone><ScreenAdmFinance /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-05" label="ADM-05 · Attendee CRM" width={W} height={H}>
+              <Phone><ScreenAdmAttendeeCRM /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-06" label="ADM-06 · Host CRM" width={W} height={H}>
+              <Phone><ScreenAdmHostCRM /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-07" label="ADM-07 · Content Moderation" width={W} height={H}>
+              <Phone><ScreenAdmModeration /></Phone>
+            </DCArtboard>
+            <DCArtboard id="adm-08" label="ADM-08 · Analytics" width={W} height={H}>
+              <Phone><ScreenAdmAnalytics /></Phone>
+            </DCArtboard>
+          </DCSection>
+
+          <DCPostIt x={40} y={40} w={320}>
+            <strong>Visual system v4</strong><br/><br/>
+            • <strong>Type</strong>: Bagel Fat One reserved for hero headlines + big price/stat numbers only. Space Grotesk Bold for all other titles (more readable). JetBrains Mono for labels.<br/>
+            • <strong>S logomark</strong> top-left on every screen except Welcome (which gets the full wordmark).<br/>
+            • <strong>No gradients</strong> — flat colour everywhere, including avatars.<br/>
+            • <strong>Yellow</strong> = money. <strong>Bold blue</strong> = celebration / CTA (replaces the hot pink). <strong>Soft blue</strong> replaces the brand blush.<br/>
+            • Movement-type colour code: <span style={{color:'#A535C7'}}>●</span> yoga · <span style={{color:'#2A3FE0'}}>●</span> pilates · <span style={{color:'#4FB8E0'}}>●</span> sound · <span style={{color:'#7A8330'}}>●</span> breath · <span style={{color:'#FF6B35'}}>●</span> flow · <span style={{color:'#E63946'}}>●</span> run · <span style={{color:'#2C8FE0'}}>●</span> HIIT.
+          </DCPostIt>
+
+          <DCPostIt x={40} y={400} w={320}>
+            <strong>What's here · landing + 32 mobile screens</strong><br/><br/>
+            <strong>Landing (1)</strong>: the web front door (stretchy.social/) — the initial page, before the app.<br/>
+            <strong>Get in (3)</strong>: welcome · log-in attendee · log-in host.<br/>
+            <strong>Onboarding (3)</strong>: sign up · preferences · payment.<br/>
+            <strong>Attendee (12)</strong>: home · this week · detail · held · going ahead · cancelled · social stretch · rate · notifications · suggest · profile.<br/>
+            <strong>Host (7)</strong>: apply · dashboard · add session · manage · floor not met · inbox · payout.<br/>
+            <strong>Stretchy HQ (8)</strong>: vetting · live · suggestions · finance · attendee CRM · host CRM · moderation · analytics.
+          </DCPostIt>
+
+          <DCPostIt x={40} y={760} w={320}>
+            <strong>How to read</strong><br/><br/>
+            Sections run roughly left-to-right in chronological order. Tap <strong>⤢</strong> on any artboard for fullscreen focus (←/→/Esc to step). Drag-reorder to compare neighbours.
+          </DCPostIt>
+        </DesignCanvas>
+      );
+    }
+
+    // The landing page is the first frame of the journey (before Get In).
+    // Neutralise its in-page "Explore the app" links so a stray click on the
+    // board doesn't reload the file.
+    if (typeof window !== 'undefined') window.__stretchyOnExplore = () => {};
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

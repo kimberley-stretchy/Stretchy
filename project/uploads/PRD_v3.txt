@@ -1,0 +1,6244 @@
+
+
+
+
+
+
+STRETCHY — Product Requirements Document
+
+
+
+
+
+Version 2 · May 2026 · For Claude Design + Lovable / Claude Code Build
+
+
+
+Source documents: UX User Flow v3 (May 2026) · Brand Voice Guidelines v1 (May 2026) · Stretchy PRD 22 May · Claude Design mobile export · Project brief (Stretchy Social Movement Club)
+
+
+
+
+
+
+
+
+
+
+
+Build target: Native mobile app (iOS + Android) + web marketing site. Vibe-coded first in Lovable or Claude Code, then handed to Claude Design for visual refinement.
+
+
+
+
+
+
+
+
+
+
+
+Platform fee: NZD $20 + GST per session — flat, never a percentage. Confirmed 2026-05-26.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. PRODUCT VISION
+
+
+
+The more we move together, the better for all.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.1 Where It Came From
+
+
+
+Stretchy began as a social yoga community in Auckland, New Zealand in 2024. The idea was simple: the run club, but for yoga. People coming together to stretch bodies, minds & social circles.
+
+
+
+
+
+
+
+
+
+
+
+Each session, a different teacher. 60 minutes of yoga, followed by a "social stretch" — coffee chats, wine hangs, beer and booch. It quickly became the highlight of attendees' weeks. Newbies and avid yogis, teachers, community managers, and everyone in between showed up. It worked.
+
+
+
+
+
+
+
+
+
+
+
+Until it didn't.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.2 The Problem That Built the Platform
+
+
+
+The model only worked en masse. It needed at least 15–20 people regularly showing up — not just for financial reasons, but for the social dynamic to actually land. The whole point was connection. You can't connect in a room of four.
+
+
+
+
+
+
+
+
+
+
+
+The costs were real: paying teachers, space rental, prep time, marketing, subscriptions, platform fees, mat and prop hire. Stretchy often didn't break even — even while offering community pricing well below the $28–35 studio drop-in rate.
+
+
+
+
+
+
+
+
+
+
+
+The energy input was overwhelming and unsustainable. One person holding everything together. No systems. No way to bring other teachers and coaches in without adding more weight to the same person.
+
+
+
+
+
+
+
+
+
+
+
+There was a clear community need. The financial returns didn't convert. This is the common challenge across yoga, wellness, and the wider community movement space — the people most committed to building connection are often the least financially supported for doing it.
+
+
+
+
+
+
+
+
+
+
+
+So the question became: how do you make movement more accessible and social for everyone, while making it financially viable for the people giving their time, expertise, and energy to hold space?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.3 The New Vision
+
+
+
+A platform where Stretchy is the organisational and payment system — and vetted teachers, guides, coaches, and community builders host their own Stretchy meet-ups using the platform and its community.
+
+
+
+
+
+
+
+
+
+
+
+Hosts set their financial target. The platform does the maths. The more people who join, the lower everyone's price. The host always hits their number. Stretchy keeps a flat fee per session.
+
+
+
+
+
+
+
+
+
+
+
+If the minimum isn't reached: the host can override and run it anyway, or cancel — with no money taken from attendees. It also works for charity and donation-based sessions.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy becomes: a community movement platform with dynamic social pricing. Yoga, pilates, run clubs, sound baths, breathwork, HIIT — any movement that gets people in a room together. The pricing mechanic is the product. Community is the engine.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.4 Why Now
+
+
+
+We are more fragmented as a society than at any point in recent memory. Small businesses are struggling — hospo, cafes, neighbourhood bars — the exact kinds of places where Stretchy social stretches happen. People are sitting more and moving less. The professional yoga and movement industry is hard to break into. The cost of living is relentless.
+
+
+
+
+
+
+
+
+
+
+
+At the same time, AI has made this kind of tech accessible to build at a fraction of the historic cost. We don't need expensive custom builds that add to platform costs. We can build it, test it, and prove it — now.
+
+
+
+
+
+
+
+
+
+
+
+The timing is right. The community need is real. The tech is available. And the model works.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.5 What the App Is
+
+
+
+This app is the first digital expression of the Stretchy pricing engine — a live, real-time community pricing mechanic that makes showing up literally better for everyone. The more people who join, the less everyone pays. That's not a feature. That's the whole point.
+
+
+
+
+
+
+
+
+
+
+
+The first format is yoga. The platform is movement. Yoga is the proving ground. The pricing mechanic, community model, and UX are designed to work across every format that gets bodies moving together.
+
+
+
+
+
+
+
+
+
+
+
+This is also a live product experiment — weaving community design, IRL experience, and dynamic pricing into something that feels more like a cult event series than a booking app.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. BRAND & VISUAL IDENTITY DIRECTION
+
+
+
+
+
+2.1 Brand Voice (summary)
+
+
+
+Voice is constant. Tone flexes by context.
+
+
+
+
+
+
+
+
+
+
+
+Joyfully Human — warm, real, occasionally dry. Sounds like a person, not a platform.
+
+
+
+Warmly Inclusive — "every body welcome. always." (two words, deliberate)
+
+
+
+Casually Confident — short declarative sentences. no over-explaining.
+
+
+
+Community-Led — the group makes the thing better. community is the engine.
+
+
+
+Playfully Honest — self-aware, not earnest. no wellness jargon.
+
+
+
+Low-Pressure, High-Energy — excited, never guilty.
+
+
+
+Culturally Relevant — run club energy, IRL craving, booch and beers.
+
+
+
+
+
+
+
+
+
+
+
+Never use: transform, elevate, journey, tribe, namaste, push yourself, wellness journey, squad.
+
+
+
+
+
+
+
+
+
+
+
+Always use: every body (two words), social stretch, movement, highlight of your week, IRL, brave, crave, booch.
+
+
+
+
+
+2.2 Visual Identity
+
+
+
+Primary brand assets:
+
+
+
+
+
+
+
+
+
+
+
+Wordmark: STRETCHY — rounded, bold, chunky letterforms in brand pink (#F5C2C8 / a warm blush-pink)
+
+
+
+Logomark: The Stretchy "S" — an organic, fluid, wave-form shape in near-black. This is not a letter — it's a movement. Use it as a visual device throughout the app.
+
+
+
+Background: Near-black (#1A1A1A) or warm cream/blush (#F5EDE3)
+
+
+
+
+
+
+
+
+
+
+
+Colour Palette — Core: | Token | Hex | Usage | |-------|-----|-------| | brand-pink | #F5C2C8 | Primary wordmark, key CTAs, confirmed states | | brand-black | #1A1A1A | Primary background, text, logomark | | brand-cream | #F5EDE3 | Secondary background, cards | | brand-yellow | #FFD166 | Price display, key stats, payout numbers | | brand-orange | #FF6B35 | Alerts, pricing curve dot, "almost full" | | brand-hot-pink | #FF4D9E | CTAs, "Going Ahead" state, scarcity triggers |
+
+
+
+
+
+
+
+
+
+
+
+Colour Palette — Extended (Claude Design direction): | Token | Hex | Usage | |-------|-----|-------| | surface-muted | #2A2A2A | Card backgrounds on dark | | surface-light | #FFF8F4 | Card backgrounds on cream | | text-secondary | #888888 | Supporting labels, timestamps | | success-green | #4CAF82 | Confirmed, paid, successful states | | hold-blue | #A8D5E2 | Hold state indicator |
+
+
+
+
+
+
+
+
+
+
+
+Typography:
+
+
+
+
+
+
+
+
+
+
+
+Display / Hero: Rounded, bold — matches Stretchy wordmark energy. Options: Nunito ExtraBold, Poppins ExtraBold, or custom rounded display.
+
+
+
+Body: Clean sans-serif — SF Pro (iOS), Inter (web/Android)
+
+
+
+Mono / Numbers: SF Mono or JetBrains Mono for price figures
+
+
+
+
+
+2.3 The Stretchy "S" as a Visual Device
+
+
+
+The Stretchy logomark (the organic S-shape) is not just a logo — it's a living visual mechanic in the app.
+
+
+
+
+
+
+
+
+
+
+
+Price drop visual: As more attendees join and the price drops, the S morphs, stretches, and shifts. At high price (few attendees), the S is tall and tight. As the price falls toward the floor, the S opens, relaxes, and becomes more fluid. This is the primary visual metaphor for the pricing engine.
+
+
+
+
+
+
+
+
+
+
+
+Implementation options:
+
+
+
+
+
+
+
+
+
+
+
+SVG path morphing between 3–5 keyframe states (starting price → mid → floor)
+
+
+
+CSS animation triggered by currentSpots / maxSpots ratio
+
+
+
+Could be used as a progress indicator on session cards in place of a standard progress bar
+
+
+
+
+
+
+
+
+
+
+
+Price display: Consider using the S shape as a visual container for the price number — the price sits inside or beside the S, which transforms as the price drops.
+
+
+
+
+
+
+
+
+
+
+
+Loading / transition states: The S can animate (stretch, bounce, flow) during loading screens, transitions between states.
+
+
+
+
+
+
+
+
+
+
+
+Session card badge: Small S mark in the corner of each card, colour-coded by status (pink = open, yellow = filling, orange = almost full, hot-pink = confirmed).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. TECH STACK
+
+
+
+Layer
+
+
+
+Tool
+
+
+
+Notes
+
+
+
+Frontend
+
+
+
+Lovable / Claude Code
+
+
+
+Vibe-coded first build
+
+
+
+Visual refinement
+
+
+
+Claude Design
+
+
+
+Post-build UI polish
+
+
+
+Backend / DB
+
+
+
+Supabase
+
+
+
+Auth, real-time pricing, session management
+
+
+
+Payments
+
+
+
+Stripe
+
+
+
+Pre-auth holds, charging, payouts, tips
+
+
+
+Email
+
+
+
+Resend
+
+
+
+Transactional comms
+
+
+
+Maps
+
+
+
+Google Maps
+
+
+
+Session location, directions
+
+
+
+Calendar (Android)
+
+
+
+Google Calendar API
+
+
+
+Add session to calendar
+
+
+
+Calendar (iOS)
+
+
+
+Apple iCal / EventKit
+
+
+
+Add session to iOS calendar
+
+
+
+CRM
+
+
+
+TBD (Supabase-based MVP, migrate later)
+
+
+
+Attendee + host relationship management
+
+
+
+Social auth
+
+
+
+Google / Apple Sign In
+
+
+
+Reduce friction on onboarding
+
+
+
+Push notifications
+
+
+
+Expo Notifications / Firebase FCM
+
+
+
+Price drops, confirmations, cancellations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. THE PRICING ENGINE
+
+
+
+This is the heart of the platform. Keep it this simple everywhere it's explained.
+
+
+
+
+
+4.1 How it works
+
+
+
+The host sets two numbers. That's it.
+
+
+
+
+
+
+
+
+
+
+
+Financial target — what they need to earn (venue + costs + time)
+
+
+
+Minimum spots — the smallest group needed for the session to run
+
+
+
+
+
+
+
+
+
+
+
+The platform calculates:
+
+
+
+
+
+
+
+
+
+
+
+(Target + $20 + GST) ÷ minimum spots = Starting price
+
+
+
+
+
+
+
+
+
+
+
+The starting price is the most anyone will ever pay. Every new person who joins drops the price for everyone.
+
+
+
+
+
+4.2 The Five Phases
+
+
+
+
+
+Phase 1 — HOLD (below minimum)
+
+
+
+Session open. Attendees hold a spot. No charge.
+
+
+
+Price shown = starting price (ceiling, never exceeded)
+
+
+
+Progress bar shows: "X of [minimum] spots held"
+
+
+
+Price holds steady until the minimum is reached — every hold is a step closer
+
+
+
+
+
+Phase 1b — HOLD (minimum reached — LIVE DROP begins) ⚡
+
+
+
+Minimum holds reached. Price starts dropping immediately — before the 36hr check.
+
+
+
+Every new hold above the minimum drops the price for all existing holders in real time.
+
+
+
+Session is still subject to 36hr confirmation, but the price is already moving.
+
+
+
+Holders can still cancel before the 36hr check. If a cancellation drops the count back below minimum, price recalculates upward accordingly.
+
+
+
+Notification to all holders: "[Session] just hit its minimum — the price started dropping. Every new person brings it down further. Share it."
+
+
+
+Progress bar shifts to live price display: current price + "still dropping"
+
+
+
+
+
+
+
+
+
+
+
+Engineering note: This requires real-time price recalculation during the hold phase, not just post-confirmation. The formula (Target + $20 + GST) ÷ current hold count runs live once hold count ≥ minimum. Cancel logic must recalculate upward if count drops. Supabase real-time subscriptions handle this — every hold/cancel triggers a recalculate + push notification to all holders.
+
+
+
+
+
+Phase 2 — 36-HOUR CHECK
+
+
+
+36 hours before the session:
+
+
+
+
+
+
+
+
+
+
+
+Minimum met → Session CONFIRMED. All holders locked in. No more cancellations.
+
+
+
+Minimum not met → Session CANCELLED. All holds released. No charges. Transparent comms to all.
+
+
+
+Edge case: If session is posted with <36hrs notice, system skips to 2hr lock-in.
+
+
+
+
+
+Phase 3 — LIVE DROP (post-confirmation, continues from Phase 1b)
+
+
+
+Session confirmed. No cancellations.
+
+
+
+New joiners still welcome up to venue capacity. Price keeps dropping.
+
+
+
+Existing holders notified of each price drop.
+
+
+
+Scarcity trigger at 80% full: Session card shows "⚡ Filling fast". Holders get: "[Session] is nearly full — share it to drop the price further and grab those last spots."
+
+
+
+
+
+Phase 4 — LOCK-IN
+
+
+
+2 hours before: price freezes for everyone.
+
+
+
+Stripe charges all confirmed holders at the final locked price.
+
+
+
+Receipt sent to each attendee.
+
+
+
+
+
+4.3 Host Pricing Prompt
+
+
+
+When a host sets up a session, the platform surfaces a quiet market reference:
+
+
+
+
+
+
+
+
+
+
+
+"For a 60-min casual vinyasa in Auckland, fair market range is $25–35. At your $200 target with 8 minimum spots, your starting price is $28. Feels about right."
+
+
+
+
+
+
+
+
+
+
+
+This is a reference, not a rule. Hosts can override at any time — one tap, no friction, no explanation needed. Special events, exclusive venues, longer formats, charity sessions — host has full control.
+
+
+
+
+
+4.4 Best / Middle / Worst Cases
+
+
+
+
+
+
+
+Attendee
+
+
+
+Host
+
+
+
+Stretchy
+
+
+
+Best
+
+
+
+Session fills. Pays below industry rate. Great class + Social Stretch.
+
+
+
+Full room, hits target, repeat community.
+
+
+
+$20 + GST per session.
+
+
+
+Middle
+
+
+
+Pays starting price — fair market rate. Good session.
+
+
+
+Minimum met, target hit, small class.
+
+
+
+$20 + GST. Session ran. Community built.
+
+
+
+Worst
+
+
+
+Minimum not met. Session cancelled. Hold released. Nothing charged.
+
+
+
+No income. Venue potentially wasted.
+
+
+
+No income. Handled with care = trust.
+
+
+
+
+
+4.5 The Stretchy Fee
+
+
+
+$20 + GST per session — fixed, never a percentage
+
+
+
+This is the platform fee. It's added on top of the host's target and split across the room.
+
+
+
+Displayed transparently to hosts on the dashboard and session creation flow.
+
+
+
+"The $20 + GST Stretchy fee never changes. Only the per-spot price moves with the room."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. APP ARCHITECTURE & SCREEN INVENTORY
+
+
+
+
+
+Attendee Screens
+
+
+
+ID
+
+
+
+Screen
+
+
+
+Purpose
+
+
+
+A0
+
+
+
+Onboarding
+
+
+
+Sign up, preferences, payment setup
+
+
+
+01
+
+
+
+Home
+
+
+
+Landing, primary CTAs
+
+
+
+02
+
+
+
+This Week
+
+
+
+Browse sessions
+
+
+
+03
+
+
+
+Session Detail
+
+
+
+Pricing engine, hold, location
+
+
+
+A4
+
+
+
+Going Ahead
+
+
+
+36hr confirm notification
+
+
+
+04
+
+
+
+Place Held
+
+
+
+Hold confirmation
+
+
+
+05
+
+
+
+Social Stretch
+
+
+
+Post-session community + tips
+
+
+
+A6
+
+
+
+Rate It
+
+
+
+Rating + photo/video
+
+
+
+A7
+
+
+
+Notifications
+
+
+
+All updates
+
+
+
+A8
+
+
+
+Suggest
+
+
+
+Float + vote on ideas
+
+
+
+A9
+
+
+
+Profile
+
+
+
+Stats, upcoming, settings
+
+
+
+
+
+Host Screens
+
+
+
+ID
+
+
+
+Screen
+
+
+
+Purpose
+
+
+
+06
+
+
+
+Apply
+
+
+
+Application + credentials
+
+
+
+09
+
+
+
+Dashboard
+
+
+
+Home base, stats, sessions
+
+
+
+07
+
+
+
+Add a Session
+
+
+
+Session creation (4 steps)
+
+
+
+H1
+
+
+
+Manage Session
+
+
+
+Roster, check-in, run of show
+
+
+
+08
+
+
+
+Floor Not Met
+
+
+
+Short of minimum — 3 options
+
+
+
+H3
+
+
+
+Host Inbox
+
+
+
+Actions + updates
+
+
+
+H2
+
+
+
+Monthly Payout
+
+
+
+Earnings, breakdown, PDF
+
+
+
+
+
+Admin Screens (functional requirements — to design)
+
+
+
+ID
+
+
+
+Screen
+
+
+
+Purpose
+
+
+
+ADM-01
+
+
+
+Vetting Queue
+
+
+
+Host applications
+
+
+
+ADM-02
+
+
+
+Live Platform View
+
+
+
+All sessions
+
+
+
+ADM-03
+
+
+
+Suggestions Manager
+
+
+
+Community pipeline
+
+
+
+ADM-04
+
+
+
+Financial Dashboard
+
+
+
+Fees, payouts, Stripe
+
+
+
+ADM-05
+
+
+
+Attendee CRM
+
+
+
+All attendees
+
+
+
+ADM-06
+
+
+
+Host CRM
+
+
+
+All hosts
+
+
+
+ADM-07
+
+
+
+Content Moderation
+
+
+
+Photo/video queue
+
+
+
+ADM-08
+
+
+
+Analytics
+
+
+
+Platform health
+
+
+
+
+
+Marketing / Web Pages
+
+
+
+Page
+
+
+
+Purpose
+
+
+
+Home
+
+
+
+Hero, pricing explainer, CTAs
+
+
+
+About
+
+
+
+Mission, origin story, why
+
+
+
+Partnerships
+
+
+
+Venues, brands, hosts
+
+
+
+Social links
+
+
+
+IG, TikTok, Substack
+
+
+
+Merch (hold)
+
+
+
+Waitlist capture
+
+
+
+Rentals & Props (hold)
+
+
+
+Waitlist capture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. ATTENDEE FLOW — DETAILED UX
+
+
+
+
+
+A0 — Onboarding
+
+
+
+Entry points: Direct URL · Shared session link · Word of mouth
+
+
+
+
+
+
+
+
+
+
+
+Hero copy: "A social movement. The more we move together, the better for all."
+
+
+
+
+
+
+
+
+
+
+
+Steps:
+
+
+
+
+
+
+
+
+
+
+
+Name + email (or phone for SMS)
+
+
+
+Neighbourhood preferences (optional — e.g. Grey Lynn, Pt Chev)
+
+
+
+Notification preferences (SMS / push / email)
+
+
+
+Payment method via Stripe — not charged yet. Clear disclaimer shown here: Disclaimer A (see Section 9)
+
+
+
+Land on Home (01)
+
+
+
+
+
+
+
+
+
+
+
+States: First-time (empty upcoming) · Returning (auto-logged in)
+
+
+
+
+
+
+
+
+
+
+
+Sign-in options: Email / phone · Google Sign In · Apple Sign In
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+01 — Home
+
+
+
+Hero: "A social movement."
+
+
+
+
+
+
+
+
+
+
+
+Three CTAs:
+
+
+
+
+
+
+
+
+
+
+
+"See this week" (primary, pink)
+
+
+
+"Host a Stretchy"
+
+
+
+"Suggest a Stretchy"
+
+
+
+
+
+
+
+
+
+
+
+Scroll content: "How to Stretchy" — pricing model, Social Stretch concept, community ethos
+
+
+
+
+
+
+
+
+
+
+
+Navigation: MENU pill → Profile (A9) · Bell → Notifications (A7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+02 — This Week (Browse)
+
+
+
+Header copy: "Pick your stretch."
+
+
+
+
+
+
+
+
+
+
+
+Content: Vetted Stretchy sessions for the week in the user's area.
+
+
+
+
+
+
+
+
+
+
+
+Each session card shows:
+
+
+
+
+
+
+
+
+
+
+
+Day pill
+
+
+
+Session name + host name
+
+
+
+Neighbourhood
+
+
+
+Progress pips (visual S-mark animation — fills as spots fill)
+
+
+
+Spots held
+
+
+
+Starting price (price pill)
+
+
+
+"Needs X to go ahead" minimum indicator
+
+
+
+
+
+
+
+
+
+
+
+Price pill states:
+
+
+
+
+
+
+
+
+
+
+
+Pink = open, below minimum (holding available, price steady)
+
+
+
+Yellow = minimum reached — price dropping live ⚡
+
+
+
+Deep yellow = filling (≥75%)
+
+
+
+⚡ Hot-pink = almost full (≥80%, scarcity trigger)
+
+
+
+Green = confirmed post-36hr check
+
+
+
+Grey = cancelled
+
+
+
+
+
+
+
+
+
+
+
+Filters: + filter · map view · see all →
+
+
+
+
+
+
+
+
+
+
+
+Session card states: Open · Minimum Reached (dropping) · Confirmed · Filling · Almost Full · Full · Cancelled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+03 — Session Detail
+
+
+
+Top bar: Back · ✓ VETTED badge · session name · day/time/neighbourhood · Add to favourites
+
+
+
+
+
+
+
+
+
+
+
+Pricing Section:
+
+
+
+
+
+
+
+
+
+
+
+Starting price displayed prominently (e.g. "From $28")
+
+
+
+Progress bar (animated S-shape) with two states:
+
+
+
+Below minimum: "X of [minimum] spots needed to confirm — and start the drop"
+
+
+
+Minimum reached: price shown live, updating in real time — "Dropping now ⚡"
+
+
+
+Price curve: Shows starting price → floor price at max capacity. Orange dot = current live position.
+
+
+
+Simulate bar: "See the price drop → add a person" (interactive drag — shows hypothetical price)
+
+
+
+Plain language (below minimum): "The most you'll pay is $28. Get to [minimum] and the price starts dropping for everyone."
+
+
+
+Plain language (minimum reached): "The minimum's hit — price is dropping live. Every new person brings it down further."
+
+
+
+
+
+
+
+
+
+
+
+Hold Section:
+
+
+
+
+
+
+
+
+
+
+
+"Hold my place" CTA (primary, hot-pink button)
+
+
+
+"No charge yet. You only pay if it goes ahead — and only at the final, lowest price."
+
+
+
+"+ Notes for the host" (injuries, pregnancy, anything relevant) — visible to host only
+
+
+
+Disclaimer A shown before confirming hold (see Section 9)
+
+
+
+
+
+
+
+
+
+
+
+Where:
+
+
+
+
+
+
+
+
+
+
+
+Venue name · address · suburb
+
+
+
+Access notes (parking, entry, what to bring)
+
+
+
+"Directions" → Google Maps · Apple Maps
+
+
+
+"Copy address"
+
+
+
+Add to calendar: Google Calendar · Apple iCal
+
+
+
+
+
+
+
+
+
+
+
+Host Card:
+
+
+
+
+
+
+
+
+
+
+
+Name · sessions hosted · FOLLOW
+
+
+
+Links: Instagram · TikTok · Substack (if host has set these)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+04 — Place Held
+
+
+
+Confirmation copy: "Place held."
+
+
+
+
+
+
+
+
+
+
+
+Session details: name · day · time · host
+
+
+
+
+
+
+
+
+
+
+
+Yellow info card — "How to Stretchy":
+
+
+
+
+
+
+
+
+
+
+
+A session is listed. Price starts at a max. There's a minimum number of people needed to make it happen.
+
+
+
+Hold your place. No charge yet. Once enough people hold, the session is on — and the price starts dropping. Tell a mate. Tell a workmate. Tell a random.
+
+
+
+36 hours out — go or no go. Minimum met? Session confirmed. The more people who join from here, the lower everyone's price. No cancellations from this point.
+
+
+
+Two hours out — doors close. Final price locks. Everyone pays. That's it.
+
+
+
+Show up. Move. Social stretch. ✌️
+
+
+
+
+
+
+
+
+
+
+
+Note: Step 2 is now mechanically accurate under Option B — price drops as soon as minimum holds are reached, before the 36hr check. ✅
+
+
+
+
+
+
+
+
+
+
+
+Community action: "Want it cheaper for everyone? + Bring a mate" → share link with live current price
+
+
+
+
+
+
+
+
+
+
+
+Social Stretch teaser (only if host has arranged one):
+
+
+
+
+
+
+
+
+
+
+
+Pink card: "🤙 [Host] is planning a Social Stretch after — coffee, a cold one, good company. Details on session day."
+
+
+
+No Social Stretch arranged → no card, no mention.
+
+
+
+
+
+
+
+
+
+
+
+Add to calendar: Google Calendar · Apple iCal (appears here as well)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pre-Session Comms
+
+
+
+36hr — GOING AHEAD (A4) Full-screen push (hot-pink):
+
+
+
+
+
+
+
+
+
+
+
+"GOING AHEAD"
+
+
+
+Session name
+
+
+
+"Minimum hit — your session's happening."
+
+
+
+"People can still join up to 2 hours before, so your price may keep dropping."
+
+
+
+Current price (large, yellow) — can still fall
+
+
+
+"Price locks 2 hours before. That's when you're charged."
+
+
+
+CTA: "+ Bring a mate"
+
+
+
+Social Stretch reminder (if arranged): "[Host] is heading to [venue] after. Come along."
+
+
+
+
+
+
+
+
+
+
+
+36hr — CANCELLED
+
+
+
+
+
+
+
+
+
+
+
+"[Session] didn't have enough people this time."
+
+
+
+"Your hold is released — nothing charged. We hope to see you at the next one."
+
+
+
+Optional: "Want to suggest this session to the community?" → A8 Suggest
+
+
+
+
+
+
+
+
+
+
+
+2hr Before — Price Locks
+
+
+
+
+
+
+
+
+
+
+
+Push/SMS: "Your price for [Session] is locked at $[X]. Processing payment now."
+
+
+
+Stripe charges
+
+
+
+Receipt to inbox (A7)
+
+
+
+Social Stretch reminder included in lock-in receipt if arranged
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+05 — Social Stretch (Post-Session)
+
+
+
+Trigger: Session ends (time-based or host confirms)
+
+
+
+
+
+
+
+
+
+
+
+Copy: "Social Stretch?"
+
+
+
+
+
+
+
+
+
+
+
+Content:
+
+
+
+
+
+
+
+
+
+
+
+Host's café/venue: "Tāne is heading to Little Bird next door. Follow along."
+
+
+
+HOST-ARRANGED card: venue name, "pay your own way" note
+
+
+
+"Say hi to someone new ✨" — one attendee surfaced with wave prompt
+
+
+
+YOUR Stretchy MATES THIS MONTH — avatar row + total
+
+
+
+BUY SOMEONE A COFFEE — tip host ($5 or custom) · buy for someone new (café redemption)
+
+
+
+Tips processed via Stripe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A6 — Rate It
+
+
+
+Trigger: ~1 hour after session ends
+
+
+
+
+
+
+
+
+
+
+
+Copy: "How was [session]?"
+
+
+
+
+
+
+
+
+
+
+
+Content:
+
+
+
+
+
+
+
+
+
+
+
+Host info · time · neighbourhood
+
+
+
+S rating (1–5 Stretchy S logomark icons) — five Stretchy S shapes, tappable. Empty S = unrated, filled/pink S = rated. SSSSS = perfect session. The S icons animate on tap (stretch, then settle).
+
+
+
+Vibe chips: Strong flow · Welcoming · Great music · Good cues · Punctual · Felt the connection · Loved the Social Stretch · Other
+
+
+
+Note to host (optional, free text)
+
+
+
+Photo or video upload (optional, 3 slots)
+
+
+
+Consent checkbox for media use
+
+
+
+"Send rating" CTA
+
+
+
+
+
+
+
+
+
+
+
+Privacy note: Ratings are anonymous in public averages. Names visible to host only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A7 — Notifications
+
+
+
+Filters: all · unread · action · confirmed · updates
+
+
+
+
+
+
+
+
+
+
+
+Note: Cancellation notifications always delivered regardless of user preference settings.
+
+
+
+
+
+
+
+
+
+
+
+Card types:
+
+
+
+
+
+
+
+
+
+
+
+⚡ DROPPING — minimum just hit, price started dropping, share nudge
+
+
+
+CONFIRMED — going ahead post-36hr check, current price, lock-in time
+
+
+
+UPDATE — price dropped (live update during hold or post-confirmation phase), new session near you
+
+
+
+ACTION — rate this session
+
+
+
+⚡ ALMOST FULL — scarcity nudge, share link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A8 — Suggest a Stretchy
+
+
+
+SUGGEST YOUR OWN:
+
+
+
+
+
+
+
+
+
+
+
+Type · When · Where
+
+
+
+"Let me know if this Stretchy happens" opt-in
+
+
+
+
+
+
+
+
+
+
+
+WHAT THE COMMUNITY WANTS:
+
+
+
+
+
+
+
+
+
+
+
+Community-voted suggestions, sorted by count
+
+
+
+Tap + to vote
+
+
+
+Hosts see the list and can pick up suggestions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A9 — Profile
+
+
+
+Header: Avatar · name · suburb · join date
+
+
+
+
+
+
+
+
+
+
+
+Stats: Sessions attended · Mates met
+
+
+
+
+
+
+
+
+
+
+
+Upcoming (split view):
+
+
+
+
+
+
+
+
+
+
+
+HELD: can cancel, no charge
+
+
+
+CONFIRMED: no cancellations, charged at lock-in
+
+
+
+
+
+
+
+
+
+
+
+YOUR Stretchy MATES: Avatar row
+
+
+
+
+
+
+
+
+
+
+
+Settings: Payment · Notifications · Neighbourhoods · Help & FAQs · Sign out · Delete account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. HOST FLOW — DETAILED UX
+
+
+
+
+
+06 — Apply (Host Application)
+
+
+
+Accessed from: Home → "Host a Stretchy"
+
+
+
+
+
+
+
+
+
+
+
+Intro card (pink): "Host a Stretchy movement led by locals. Vetted once. Active for 6 months. Change your sessions any time."
+
+
+
+
+
+
+
+
+
+
+
+Application form:
+
+
+
+
+
+
+
+
+
+
+
+Based in New Zealand? (YES / NO — NO routes to international waitlist)
+
+
+
+Why you're perfect (free text)
+
+
+
+Your practice: I teach · Years active · Neighbourhood base
+
+
+
+Credentials (recommended, not required): Certified practitioner · First aid · Other
+
+
+
+WHERE MATES FIND YOU (all optional): Instagram · TikTok · Website · Substack · Email
+
+
+
+Will you add a Social Stretch? (YES/NO) → if yes, venue partner field
+
+
+
+How often? (multi-select): Multiple weekly · Weekly · Fortnightly · Monthly · Quarterly · Events/pop-ups only · Other
+
+
+
+Terms & conditions checkbox (or "Chat to Stretchy" option)
+
+
+
+
+
+
+
+
+
+
+
+CTA: "Apply"
+
+
+
+
+
+
+
+
+
+
+
+Post-submission: Confirmation message. Application enters Admin vetting queue.
+
+
+
+
+
+
+
+
+
+
+
+On approval: "Welcome to Stretchy!" notification + steps to:
+
+
+
+
+
+
+
+
+
+
+
+Complete host profile
+
+
+
+Add bank account details
+
+
+
+Post first Stretchy session
+
+
+
+
+
+
+
+
+
+
+
+Vetting active 6 months. Auto-renewal prompt at expiry.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+09 — Host Dashboard
+
+
+
+Top bar: Stretchy logo · HOST DASHBOARD · bell (notifications) · active slots pill · avatar
+
+
+
+
+
+
+
+
+
+
+
+Welcome card (pink):
+
+
+
+
+
+
+
+
+
+
+
+"Kia ora, [name]."
+
+
+
+Bio pulled from application (editable)
+
+
+
+Payment details prompt if not yet added
+
+
+
+Session types · neighbourhoods · sessions this month
+
+
+
+
+
+
+
+
+
+
+
+Stats strip:
+
+
+
+
+
+
+
+
+
+
+
+THIS MONTH earnings (in yellow)
+
+
+
+AVG ROOM RATE
+
+
+
+MATES HOSTED
+
+
+
+REPEAT MATES %
+
+
+
+
+
+
+
+
+
+
+
+Primary action: "+ Add a Stretchy session" (pink pill, sits high)
+
+
+
+
+
+
+
+
+
+
+
+Live session cards (one per session):
+
+
+
+
+
+
+
+
+
+
+
+Day · time · session name
+
+
+
+Holds vs confirmed spots · current live price
+
+
+
+Animated price curve (orange dot = current position)
+
+
+
+Status: HOLDING / CONFIRMED / FILLING / ⚡ ALMOST FULL / SHORT OF FLOOR
+
+
+
+
+
+
+
+
+
+
+
+Pricing formula display (per session):
+
+
+
+
+
+
+
+
+
+
+
+YOUR TARGET (yellow, editable per session)
+
+
+
+Stretchy FEE: $20 + GST (fixed, greyed)
+
+
+
+Formula bar: TARGET + FEE ÷ SPOTS = PER SPOT
+
+
+
+"The $20 + GST Stretchy fee never changes. Only the per-spot price moves with the room."
+
+
+
+
+
+
+
+
+
+
+
+Pending payout:
+
+
+
+
+
+
+
+
+
+
+
+PAYS MONDAY · total · session breakdown · download statement (PDF) · edit bank details
+
+
+
+
+
+
+
+
+
+
+
+Host actions: Upload photo or video · Feedback to Stretchy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+07 — Add a Stretchy Session (4 Steps)
+
+
+
+Step 1 — The Basics
+
+
+
+
+
+
+
+
+
+
+
+Session name
+
+
+
+Day (pill selector: MO–SU)
+
+
+
+One-off or repeat? (one-off / weekly / fortnightly / monthly)
+
+
+
+Time
+
+
+
+Duration (45 min / 1hr / 75 min / 2hr / custom)
+
+
+
+
+
+
+
+
+
+
+
+Step 2 — Location
+
+
+
+
+
+
+
+
+
+
+
+Venue name (free text)
+
+
+
+Neighbourhood
+
+
+
+Venue details (optional): parking, entry point, landmarks, what to bring
+
+
+
+Venue capacity (number input — backend only, not shown until 80% trigger)
+
+
+
+
+
+
+
+
+
+
+
+Step 3 — Session Description
+
+
+
+
+
+
+
+
+
+
+
+WHAT TO EXPECT (free text)
+
+
+
+ANY OTHER INFO (optional)
+
+
+
+
+
+
+
+
+
+
+
+Step 4 — The Numbers Pricing prompt appears:
+
+
+
+
+
+
+
+
+
+
+
+"For a 60-min casual vinyasa in Auckland, fair market range is $25–35. At your $200 target with 8 minimum spots, your starting price is $28." "Not right for your session? Set your own price." — always visible, one tap.
+
+
+
+
+
+
+
+
+
+
+
+YOUR FINANCIAL TARGET — slider ($50–$10,000). "Cover your venue, your time, your costs. The $20 + GST Stretchy fee is added on top and split across the room — never a percentage of your earnings."
+
+
+
+MINIMUM SPOTS TO RUN — slider. "This sets your starting price — the most anyone will ever pay. Below this, the session won't run and all holds are released. No one charged."
+
+
+
+
+
+
+
+
+
+
+
+Live price preview table (updates as sliders move): | Spots | Price per person | |-------|-----------------| | [minimum] | $XX.XX ← Starting price | | [mid] | $XX.XX | | [max capacity] | $XX.XX ← Floor price |
+
+
+
+
+
+
+
+
+
+
+
+"At minimum, you hit your target of $[X]. Every extra person after that is a better deal for your community — and you still take home exactly $[X]."
+
+
+
+
+
+
+
+
+
+
+
+→ Disclaimer C shown here (host responsibilities — see Section 9)
+
+
+
+
+
+
+
+
+
+
+
+Disclaimer shown in session creation (from UX v3): "By posting this session you confirm: (1) You hold all relevant practitioner credentials. (2) Your venue booking is confirmed. (3) If running a Social Stretch, you've notified the venue — attendees pay their own way unless stated otherwise. (4) Holds are held until the 36-hour check. If minimum is met, all holders are locked in. New joiners can book until 2 hours before, when price locks and payment is processed. (5) If you cancel after lock-in, attendees receive a full refund. The $20 + GST Stretchy fee remains payable. (6) Stretchy collects payment on your behalf. You can adjust your target per session, any time. (7) You agree to promote your Stretchy session through your own channels where appropriate. If sharing attendee content, verbal permission at the event is required."
+
+
+
+
+
+
+
+
+
+
+
+CTA: "Post session · Go to dashboard"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H1 — Manage Session
+
+
+
+Header: "Who's coming."
+
+
+
+
+
+
+
+
+
+
+
+Session header: day · time · status (CONFIRMED / SHORT OF FLOOR / ⚡ ALMOST FULL)
+
+
+
+
+
+
+
+
+
+
+
+Live: spot count + current price
+
+
+
+
+
+
+
+
+
+
+
+Actions: "Message everyone" · "Share this sesh"
+
+
+
+
+
+
+
+
+
+
+
+Roster:
+
+
+
+
+
+
+
+
+
+
+
+Total count (e.g. ROSTER · 11 HELD / 8 CONFIRMED)
+
+
+
+Check-in on session day (tap checkbox)
+
+
+
+⚠️ Notes alert (injuries, pregnancy etc. — host-only)
+
+
+
+Each row: name · context tag · session count pill · attendee note if present
+
+
+
+
+
+
+
+
+
+
+
+Run of show (auto-generated): "Doors 5:45pm · starts 6:00pm sharp · Social Stretch at Honey Sundays ~7:15pm."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+08 — Floor Not Met
+
+
+
+Trigger: 36 hours before + minimum not reached
+
+
+
+
+
+
+
+
+
+
+
+Header (orange): "Short of the floor."
+
+
+
+
+
+
+
+
+
+
+
+Copy: "You need [X] spots. You've got [Y]. Locks in [countdown]."
+
+
+
+
+
+
+
+
+
+
+
+Spot progress tiles
+
+
+
+
+
+
+
+
+
+
+
+YOUR MOVES:
+
+
+
+
+
+
+
+
+
+
+
+Share it (pink) — link with current price, copy button
+
+
+
+Lower the floor (yellow) — reduce minimum so session proceeds at fewer people, or lower revenue target to keep existing holders' price
+
+
+
+Call it (white) — cancel, holds released, no charges, slot freed next week
+
+
+
+"Do nothing? Auto-cancels at lock-in. Everyone notified. No one charged. Doesn't count against your slots."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H3 — Host Inbox
+
+
+
+Filters: all · unread · needs action · positive · updates
+
+
+
+
+
+
+
+
+
+
+
+Card types:
+
+
+
+
+
+
+
+
+
+
+
+ACTION — short of the floor alert
+
+
+
+CONFIRMED — locked in, target hit
+
+
+
+UPDATE — new hold, regular attendee noted
+
+
+
+SOCIAL — community vote matches your practice
+
+
+
+CONFIRMED — payout incoming
+
+
+
+UPDATE — vetting renewed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H2 — Monthly Payout
+
+
+
+Header: "This month, you earned."
+
+
+
+
+
+
+
+
+
+
+
+Content:
+
+
+
+
+
+
+
+
+
+
+
+PAYS MONDAY · bank details
+
+
+
+Total (yellow) · sessions ran · spots filled
+
+
+
+Breakdown per session: spots · Stretchy fee · avg/spot · host take
+
+
+
+Stretchy fees total: "$20 + GST per session. Never a percentage."
+
+
+
+"Download statement (PDF)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8. ADMIN FLOW — FUNCTIONAL REQUIREMENTS
+
+
+
+Screens not yet designed. These are the functional requirements for Stretchy HQ.
+
+
+
+
+
+ADM-01 — Vetting Queue
+
+
+
+States: PENDING / IN REVIEW / APPROVED / DECLINED / MORE INFO Actions: Book call · Email · Google Meet link
+
+
+
+
+
+ADM-02 — Live Session Oversight
+
+
+
+All sessions, all statuses: HOLDING / CONFIRMED / FILLING / ALMOST FULL / SHORT OF FLOOR / LOCKED / CANCELLED / COMPLETED Drill into: roster, pricing history, attendee notes, payment status Actions: Cancel + auto-refund capability
+
+
+
+
+
+ADM-03 — Suggestions Manager
+
+
+
+Community suggestions pipeline. Vote counts. Notify matching hosts.
+
+
+
+
+
+ADM-04 — Financial Dashboard
+
+
+
+Total fees collected · total payouts · sessions run
+
+
+
+Avg room size · avg per-spot price
+
+
+
+Stripe: refunds, failed payments, disputes, tips
+
+
+
+
+
+ADM-05 — Attendee CRM
+
+
+
+Sessions attended · total spend · mates connected · neighbourhoods · lifetime value
+
+
+
+
+
+ADM-06 — Host CRM
+
+
+
+Sessions run · earnings · health score · credential expiry · vetting renewal date
+
+
+
+
+
+ADM-07 — Content Moderation
+
+
+
+Photo/video approval queue. APPROVE / REJECT / RE-UPLOAD. Approved content → social pipeline. All automation reviewed before posting — never auto-publish.
+
+
+
+
+
+ADM-08 — Analytics
+
+
+
+Active attendees · sessions run vs cancelled
+
+
+
+Floor-not-met rate · new host applications
+
+
+
+Suggestion → session conversion rate
+
+
+
+Repeat attendee rate · neighbourhood heat map
+
+
+
+Hold → confirmed conversion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9. DISCLAIMERS
+
+
+
+
+
+Disclaimer A — Attendee Payments
+
+
+
+Where it appears: Onboarding (Step 4, Stripe setup) · Session Detail (before confirming hold) · How to Stretchy card (04 Place Held) · FAQ
+
+
+
+
+
+
+
+
+
+
+
+Text:
+
+
+
+
+
+
+
+
+
+
+
+Payment & Cancellation — What You Need to Know
+
+
+
+
+
+
+
+
+
+
+
+When you hold a spot, we collect your payment details via Stripe. You are not charged at this point.
+
+
+
+
+
+
+
+
+
+
+
+If the session goes ahead: Your payment is processed 2 hours before the session starts, at the final locked price — which will be equal to or less than the price shown when you held your spot.
+
+
+
+
+
+
+
+
+
+
+
+If the session is cancelled (because the minimum number of spots wasn't reached): Your hold is released. Nothing is charged. No action needed from you.
+
+
+
+
+
+
+
+
+
+
+
+Cancellations by you: You may cancel your hold at any time before the 36-hour check. After the 36-hour check, the session is confirmed and your spot is locked — cancellations are not available and no refunds are issued.
+
+
+
+
+
+
+
+
+
+
+
+No hidden fees. The price you see is the price you pay — or less. The Stretchy platform fee ($20 + GST) is included in your per-spot price and is already split across the room. You will never be charged more than the starting price shown.
+
+
+
+
+
+
+
+
+
+
+
+This policy is written to comply with New Zealand's Fair Trading Act 1986 and Consumer Guarantees Act 1993. For Australian attendees, it complies with the Australian Consumer Law (Schedule 2, Competition and Consumer Act 2010).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Disclaimer B — Attendee Health & Injury
+
+
+
+Where it appears: Onboarding · Session Detail · FAQ · Legal page
+
+
+
+
+
+
+
+
+
+
+
+Text:
+
+
+
+
+
+
+
+
+
+
+
+Health, Injury & Safety
+
+
+
+
+
+
+
+
+
+
+
+Movement involves physical activity. Please consult a medical professional before participating if you have any health conditions, injuries, or concerns. If in doubt, sit it out — and let the host know via the "Notes for the host" field when you hold your spot.
+
+
+
+
+
+
+
+
+
+
+
+For New Zealand attendees: New Zealand's Accident Compensation Corporation (ACC) provides no-fault personal injury cover for all NZ residents and visitors injured while participating in physical activity. If you are injured at a Stretchy session in New Zealand, you may be entitled to ACC cover. Stretchy does not seek to exclude or limit your rights under the ACC scheme. See acc.co.nz for more information.
+
+
+
+
+
+
+
+
+
+
+
+For Australian attendees: Participation in recreational physical activity carries inherent risk. While Stretchy and its hosts take reasonable care to ensure sessions are conducted safely, participation is at your own risk to the extent permitted by law. This does not exclude any rights you have under the Australian Consumer Law or any non-excludable statutory guarantees. To the extent permitted by law, our liability for any injury arising from reckless or grossly negligent conduct is not limited by this notice.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy hosts are vetted for relevant credentials and experience, but are independent practitioners. Always disclose relevant health information to your host before participating.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Disclaimer C — Host Responsibilities
+
+
+
+Where it appears: Session creation (Step 4 — Add a Session, before posting) · Host application · Host FAQ
+
+
+
+
+
+
+
+
+
+
+
+Text:
+
+
+
+
+
+
+
+
+
+
+
+Host Responsibilities — What You're Agreeing To
+
+
+
+
+
+
+
+
+
+
+
+By hosting a Stretchy session, you're providing a fitness and movement service to consumers. Under New Zealand's Consumer Guarantees Act 1993 and Australia's Australian Consumer Law, there is a statutory guarantee that services must be provided with reasonable care and skill. This responsibility sits with you as the host — not Stretchy.
+
+
+
+
+
+
+
+
+
+
+
+The Stretchy platform fee is $20 + GST per session. This is a fixed platform fee — never a percentage of your earnings — and covers your access to the Stretchy booking, pricing, and community platform. It is deducted from session revenue collected by Stretchy before payout.
+
+
+
+
+
+
+
+
+
+
+
+What the $20 + GST covers: Platform booking and payment processing · pricing engine · attendee management · vetted host listing · community tools · support.
+
+
+
+
+
+
+
+
+
+
+
+What it doesn't cover: Your venue costs (your responsibility) · your professional indemnity insurance (strongly recommended) · first aid requirements (check your local obligations) · any claims arising from injury or loss suffered by attendees.
+
+
+
+
+
+
+
+
+
+
+
+By posting a session, you confirm: (1) You hold all relevant practitioner credentials for the session type. (2) Your venue is confirmed and booked. (3) If running a Social Stretch, the venue is notified and attendees pay their own way unless otherwise stated. (4) You will conduct the session with reasonable care and skill. (5) You hold, or will obtain before the session, appropriate professional indemnity or public liability insurance.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy is the platform — you are the service provider. We're here to help you build community, not replace your professional responsibilities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10. INTEGRATIONS
+
+
+
+
+
+10.1 Stripe Payments
+
+
+
+Pre-auth hold on Stripe at onboarding
+
+
+
+Charge triggered at 2hr lock-in for all confirmed holders
+
+
+
+Tips (Social Stretch) via Stripe
+
+
+
+Host payouts via Stripe Connect (Monday payout schedule)
+
+
+
+Refunds on cancellation (admin-triggered for host cancellations)
+
+
+
+Failed payment handling and retry logic
+
+
+
+Receipt emails via Resend
+
+
+
+
+
+10.2 Google Maps
+
+
+
+Session location display on Session Detail (03)
+
+
+
+"Directions" CTA opens Google Maps with venue pin
+
+
+
+Map view filter on Browse (02 This Week)
+
+
+
+Neighbourhood heat map in Admin Analytics (ADM-08)
+
+
+
+
+
+10.3 Apple Maps (iOS)
+
+
+
+Fallback or alternative to Google Maps on iOS
+
+
+
+"Directions" CTA on iOS routes to Apple Maps if set as default
+
+
+
+
+
+10.4 Google Calendar
+
+
+
+"Add to calendar" CTA on Place Held (04) and Session Detail (03)
+
+
+
+Creates calendar event with: session name, date/time, venue address, host name, Social Stretch details (if arranged)
+
+
+
+Event updates if price or session details change pre-lock-in
+
+
+
+Cancellation removes event from calendar
+
+
+
+
+
+10.5 Apple iCal (EventKit)
+
+
+
+Same functionality as Google Calendar for iOS users
+
+
+
+Uses EventKit framework (native iOS calendar integration)
+
+
+
+Prompts for calendar access permission on first use
+
+
+
+
+
+10.6 Stretchy Social Media Links
+
+
+
+Instagram: @stretchysocial
+
+
+
+TikTok: @stretchysocial
+
+
+
+Substack: stretchy.substack.com
+
+
+
+Links appear in: App footer · About page · Profile page · Host cards (if host has linked their socials)
+
+
+
+Hosts can link their own Instagram, TikTok, and Substack on their host profile (entered during application, editable in dashboard)
+
+
+
+Social sharing: session share links auto-include current live price and progress state
+
+
+
+
+
+10.7 Substack
+
+
+
+Stretchy Substack linked across app and web
+
+
+
+Hosts can link their personal Substack in their profile
+
+
+
+"Stay in the loop" CTA on web marketing pages → Substack subscribe embed or link
+
+
+
+
+
+10.8 CRM
+
+
+
+MVP (Supabase-based):
+
+
+
+
+
+
+
+
+
+
+
+Attendee table: sessions, spend, mates, neighbourhoods, join date, lifetime sessions
+
+
+
+Host table: sessions run, earnings, health score, credential expiry, vetting renewal
+
+
+
+Surfaced via Admin CRM screens (ADM-05, ADM-06)
+
+
+
+
+
+
+
+
+
+
+
+Future: Migrate to dedicated CRM (e.g. HubSpot, Attio, or custom) as platform scales
+
+
+
+
+
+10.9 Push Notifications
+
+
+
+Expo Notifications (React Native) / Firebase FCM
+
+
+
+Channels: price drops · session confirmed · session cancelled · 2hr lock-in · Social Stretch · Rate It · new session near you
+
+
+
+User controls notification preferences in Profile → Settings (A9)
+
+
+
+Cancellation notifications always delivered regardless of preference settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. SYSTEM AUTOMATIONS
+
+
+
+Trigger
+
+
+
+Action
+
+
+
+Who
+
+
+
+New hold (below minimum)
+
+
+
+Update progress bar
+
+
+
+All viewers
+
+
+
+Hold count hits minimum
+
+
+
+Begin live price drop. Recalculate price. Notify all holders: "Price just started dropping ⚡"
+
+
+
+All holders + All viewers
+
+
+
+New hold (above minimum, pre-36hr)
+
+
+
+Recalculate + drop price live, notify all holders
+
+
+
+All holders
+
+
+
+Hold cancelled (drops below minimum)
+
+
+
+Recalculate price upward, update all holders
+
+
+
+All holders
+
+
+
+36hrs before: minimum met
+
+
+
+Confirm session, lock all holders in, send "Going Ahead"
+
+
+
+All holders
+
+
+
+36hrs before: minimum not met
+
+
+
+Cancel session, release all holds, send cancellation
+
+
+
+All holders + Host
+
+
+
+New joiner post-confirmation
+
+
+
+Recalculate + drop price, notify existing holders
+
+
+
+All holders
+
+
+
+80% capacity reached
+
+
+
+Fire "⚡ Filling fast" badge + scarcity notification
+
+
+
+Attendees + holders
+
+
+
+2hrs before
+
+
+
+Lock price, charge via Stripe, send receipts
+
+
+
+All confirmed
+
+
+
+Session ends
+
+
+
+Trigger Social Stretch screen
+
+
+
+Attendees
+
+
+
+~1hr post-session
+
+
+
+Trigger Rate It
+
+
+
+Attendees
+
+
+
+Monday
+
+
+
+Process host payouts
+
+
+
+Hosts
+
+
+
+6 months post-vetting
+
+
+
+Renewal prompt
+
+
+
+Host + Admin
+
+
+
+Community suggestion hits vote threshold
+
+
+
+Notify matching hosts
+
+
+
+Hosts
+
+
+
+Session posted <36hrs notice
+
+
+
+Skip to 2hr lock-in logic
+
+
+
+System
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12. BRAND CONTENT — COPY LIBRARY
+
+
+
+Written in Stretchy TOV. Review against brand guidelines before going to Claude Design.
+
+
+
+
+
+About Page
+
+
+
+Hero: "A social movement."
+
+
+
+
+
+
+
+
+
+
+
+Subhead: "The more we move together, the better for all."
+
+
+
+
+
+
+
+
+
+
+
+Body:
+
+
+
+
+
+
+
+
+
+
+
+Stretchy is an IRL movement community for people who want to move — without the membership, the markup, or the loneliness of doing it alone.
+
+
+
+
+
+
+
+
+
+
+
+We connect people through vetted, local sessions. Yoga, run clubs, breathwork, sound baths, pilates, dance. Led by people who know their practice and their community. Priced to get better the more people show up.
+
+
+
+
+
+
+
+
+
+
+
+Here's the thing: movement is better together. And fairer together, too. The more people who join a Stretchy session, the less everyone pays. That's not a gimmick — it's the whole point. Community is the engine.
+
+
+
+
+
+
+
+
+
+
+
+How it started:
+
+
+
+
+
+
+
+
+
+
+
+Stretchy began in Auckland in 2024 as a social yoga club. The idea was simple: the run club, but for yoga. Different teacher each week. 60 minutes of movement, then a "social stretch" — coffee, chats, a cold one, good company.
+
+
+
+
+
+
+
+
+
+
+
+It became the highlight of people's weeks, fast. Beginners and yoga teachers, community managers and total newcomers — all showing up, moving together, staying for the social stretch.
+
+
+
+
+
+
+
+
+
+
+
+But the model only worked when enough people showed up. The costs were real — teachers, venues, prep time, equipment — and when numbers dropped, it stopped being viable. A common problem in the yoga, wellness, and community space. The people most committed to building connection are often the least financially supported for doing it.
+
+
+
+
+
+
+
+
+
+
+
+So we built the fix.
+
+
+
+
+
+
+
+
+
+
+
+Why Stretchy exists:
+
+
+
+
+
+
+
+
+
+
+
+Fitness got expensive. Classes got lonely. Small businesses — the cafes, bars, and community spaces where people actually connect — are struggling. And the gap between a fair price and feeling like you genuinely belong somewhere kept getting wider.
+
+
+
+
+
+
+
+
+
+
+
+We started in Tāmaki Makaurau with a simple idea: what if the price of a class dropped as more people joined? What if your neighbours, your workmates, the person you always see at the park were all moving together — and all paying less because of it?
+
+
+
+
+
+
+
+
+
+
+
+That's Stretchy. A community that literally gets better — and cheaper — the more people are in it. The host always hits their number. The community always gets a fair price. And the more people who show up, the better it is for everyone in the room.
+
+
+
+
+
+
+
+
+
+
+
+Why join:
+
+
+
+
+
+
+
+
+
+
+
+Because movement is better when it's shared. Because $28 is already fair — and it only gets better from there. Because the Social Stretch after (coffee, a drink, a chat, someone new) is sometimes the best part. Because walking into a room of people who all chose to show up and connect — that's not a gym class. That's community.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy in Auckland — Stretchy Yoga IRL:
+
+
+
+
+
+
+
+
+
+
+
+Stretchy started with yoga. In Auckland. In community halls, local parks, and borrowed spaces. Before the platform, before the app, there were just people who wanted to move — and a host with a mat and a belief that movement should be for everyone.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy Yoga IRL was the first expression of what we're building. The platform is how we bring that feeling to more people, more places, more formats.
+
+
+
+
+
+
+
+
+
+
+
+Auckland is where we started. Other cities are coming. Join the waitlist and we'll bring Stretchy to you.
+
+
+
+
+
+
+
+
+
+
+
+Why now:
+
+
+
+
+
+
+
+
+
+
+
+We are more fragmented than ever. People are sitting more and moving less. The cost of living is brutal. And the small businesses that used to be our third spaces — the neighbourhood cafes, bars, and community spots — are under real pressure.
+
+
+
+
+
+
+
+
+
+
+
+Stretchy is built for this moment. More accessible movement. More reasons to show up together. More people in the cafes and bars and community halls that need them.
+
+
+
+
+
+
+
+
+
+
+
+The tech that makes this possible is finally accessible. So we built it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Partnerships Page
+
+
+
+Stretchy works because of the people around the table. We're building something that needs community at every level — not just attendees and hosts, but the venues, businesses, and brands that believe in what fair, human movement looks like.
+
+
+
+
+
+
+
+
+
+
+
+We're interested in:
+
+
+
+
+
+
+
+
+
+
+
+Venues & spaces — community halls, studios, parks, cafes with room. If you have space and want to host movement, let's talk.
+
+
+
+
+
+
+
+
+
+
+
+Social Stretch partners — the spot next door that becomes the after-session ritual. Coffee, food, a cold drink. Pay your own way, but we'll send you a room full of people who earned it. We actively want to support neighbourhood hospo — the kind of places that make communities feel like communities.
+
+
+
+
+
+
+
+
+
+
+
+Brand alignment — we work with brands who stand for what we stand for: fairness, community, movement, and making modern life feel more human. We're selective. We're transparent. Long-term over transactional, always.
+
+
+
+
+
+
+
+
+
+
+
+Hosts — if you lead movement in your community — yoga, pilates, run clubs, breathwork, dance, HIIT, sound baths, whatever gets people in a room together — we want to meet you. Apply to host a Stretchy.
+
+
+
+
+
+
+
+
+
+
+
+Media & storytelling — we believe in what we're building and we're happy to talk about it.
+
+
+
+
+
+
+
+
+
+
+
+Get in touch: hello@stretchy.co.nz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13. VISUAL DESIGN DIRECTION — FOR CLAUDE DESIGN
+
+
+
+
+
+13.1 Overall Direction
+
+
+
+Visually combine: Claude Design mobile demo (pink logomark on dark, fluid shapes) + Stretchy brand guidelines (wordmark, colour palette, illustration energy).
+
+
+
+
+
+
+
+
+
+
+
+The result should feel like: a night-out social app got into wellness. Fun, tactile, warm. Nothing sterile. Nothing corporate wellness.
+
+
+
+
+
+13.2 Screen-Level Visual Notes
+
+
+
+Home (01):
+
+
+
+
+
+
+
+
+
+
+
+Dark background (#1A1A1A)
+
+
+
+Large STRETCHY wordmark in pink at top
+
+
+
+Stretchy S logomark as background texture (subtle, large, cropped)
+
+
+
+CTAs in hot-pink rounded pills
+
+
+
+Feels like a music venue app, not a fitness app
+
+
+
+
+
+
+
+
+
+
+
+Browse / This Week (02):
+
+
+
+
+
+
+
+
+
+
+
+Cream background (#F5EDE3)
+
+
+
+Session cards: dark card on cream, or cream card on dark — alternate for contrast
+
+
+
+Progress pips replaced with animated S-mark that fills as spots fill
+
+
+
+Price pill prominent, colour-coded by state
+
+
+
+
+
+
+
+
+
+
+
+Session Detail (03):
+
+
+
+
+
+
+
+
+
+
+
+Price is the hero — displayed large in yellow (#FFD166)
+
+
+
+Price curve is a visual centrepiece — smooth gradient arc
+
+
+
+The Stretchy S lives alongside the price, morphing as price drops
+
+
+
+"Hold my place" CTA: full-width, hot-pink, bottom of screen
+
+
+
+
+
+
+
+
+
+
+
+Going Ahead (A4):
+
+
+
+
+
+
+
+
+
+
+
+Full-screen hot-pink
+
+
+
+Large bold type: "GOING AHEAD"
+
+
+
+Feels like a celebration moment — this is the party screen
+
+
+
+
+
+
+
+
+
+
+
+Place Held (04):
+
+
+
+
+
+
+
+
+
+
+
+Warm cream background
+
+
+
+Yellow "How to Stretchy" card
+
+
+
+Pink Social Stretch teaser card
+
+
+
+Calm, reassuring, community-feeling
+
+
+
+
+
+
+
+
+
+
+
+Host Dashboard (09):
+
+
+
+
+
+
+
+
+
+
+
+Stats in yellow on dark surface cards
+
+
+
+The pricing formula displayed as a living equation — TARGET + FEE ÷ SPOTS = PER SPOT
+
+
+
+Earnings number big, bold, yellow
+
+
+
+
+
+
+
+
+
+
+
+Floor Not Met (08):
+
+
+
+
+
+
+
+
+
+
+
+Orange warning tone (#FF6B35)
+
+
+
+Clear action hierarchy: Share it (pink) → Lower the floor (yellow) → Call it (white outline)
+
+
+
+
+
+13.3 The S as a Dynamic Visual
+
+
+
+The Stretchy S logomark should appear in the following animated states across the app:
+
+
+
+
+
+
+
+
+
+
+
+State
+
+
+
+S Behaviour
+
+
+
+Trigger
+
+
+
+Session open, few holds
+
+
+
+S is upright, compact
+
+
+
+Low fill %
+
+
+
+Session filling
+
+
+
+S begins to lean and relax
+
+
+
+50–75% fill
+
+
+
+Almost full
+
+
+
+S stretches and opens
+
+
+
+75–90% fill
+
+
+
+Confirmed / locked
+
+
+
+S glows, pulses once
+
+
+
+Session confirmed
+
+
+
+Price dropping
+
+
+
+S morphs smoothly downward
+
+
+
+New hold added
+
+
+
+Cancelled
+
+
+
+S fades or compresses
+
+
+
+Session cancelled
+
+
+
+
+
+
+
+
+
+
+
+SVG implementation: Design 3–5 SVG path states and interpolate between them using GSAP or CSS d property animation. The S should feel organic and alive — not mechanical.
+
+
+
+
+
+13.4 Typography Recommendations
+
+
+
+Use
+
+
+
+Style
+
+
+
+Hero / Display
+
+
+
+Rounded bold — Nunito ExtraBold 900 or Poppins ExtraBold
+
+
+
+Body
+
+
+
+SF Pro Text (iOS) / Inter (web) — 16px / 1.5 line height
+
+
+
+Prices / numbers
+
+
+
+SF Mono or tabular figures — always yellow (#FFD166)
+
+
+
+Labels / chips
+
+
+
+12px uppercase tracked — brand black on pink or cream
+
+
+
+CTAs
+
+
+
+16px medium, rounded pill, full-width on mobile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14. APP STORE & GOOGLE PLAY — SUBMISSION REQUIREMENTS
+
+
+
+
+
+14.1 Apple App Store
+
+
+
+Developer account:
+
+
+
+
+
+
+
+
+
+
+
+Apple Developer Program membership required ($99 USD/year)
+
+
+
+Enroll at developer.apple.com
+
+
+
+Required for TestFlight (beta testing) and App Store distribution
+
+
+
+
+
+
+
+
+
+
+
+App Review requirements:
+
+
+
+
+
+
+
+
+
+
+
+Apps must comply with the App Store Review Guidelines
+
+
+
+Payments: Stripe integration must use Stripe's iOS SDK. Physical goods/services can use external payment providers (Stripe) — Stretchy qualifies as a service booking, not digital goods, so external payments are permitted.
+
+
+
+Health & fitness category: Select "Health & Fitness" or "Lifestyle" as primary category. Stretchy fits both — recommend Lifestyle with Health & Fitness as secondary.
+
+
+
+Privacy policy: Required before submission. Must link from the App Store listing and within the app. (See Section 15)
+
+
+
+Terms of Service: Required within app. Must be accepted by users during onboarding.
+
+
+
+
+
+
+
+
+
+
+
+App Store listing requirements:
+
+
+
+
+
+
+
+
+
+
+
+App name: Stretchy (or "Stretchy — Social Movement Club")
+
+
+
+Subtitle: Up to 30 characters. Suggested: "Move together. Pay less."
+
+
+
+Description: Up to 4,000 characters. Lead with the pricing mechanic and community story.
+
+
+
+Keywords: Up to 100 characters. Suggested: yoga, community, movement, fitness, social, classes, Auckland, local, group, wellness
+
+
+
+Screenshots: Required for iPhone (6.7", 6.5", 5.5") and iPad if supported. Minimum 1, maximum 10. Show the pricing engine, session browse, and Social Stretch.
+
+
+
+App icon: 1024 × 1024px PNG, no alpha channel. Use the Stretchy S logomark on pink or dark background.
+
+
+
+App preview video: Optional but recommended — show the price dropping in real time.
+
+
+
+Age rating: 4+ (no objectionable content). Note: apps involving payment may require a higher review pass.
+
+
+
+Price: Free (in-app Stripe charges are external to Apple's billing system for services)
+
+
+
+
+
+
+
+
+
+
+
+Technical requirements:
+
+
+
+
+
+
+
+
+
+
+
+Xcode latest stable version
+
+
+
+iOS 16+ minimum deployment target (recommend 17+ for broader feature access)
+
+
+
+Swift or React Native / Expo
+
+
+
+Enable Push Notifications capability in Xcode
+
+
+
+Enable Sign in with Apple (required if offering any social login)
+
+
+
+Complete App Privacy questionnaire — detail data collected (email, location, payment info)
+
+
+
+
+
+
+
+
+
+
+
+TestFlight (beta):
+
+
+
+
+
+
+
+
+
+
+
+Up to 10,000 external testers
+
+
+
+Requires App Store Connect setup and at least a beta review pass
+
+
+
+Use this to test the Stretchy community before public launch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14.2 Google Play Store
+
+
+
+Developer account:
+
+
+
+
+
+
+
+
+
+
+
+Google Play Developer account required ($25 USD one-time)
+
+
+
+Enroll at play.google.com/console
+
+
+
+
+
+
+
+
+
+
+
+Policy requirements:
+
+
+
+
+
+
+
+
+
+
+
+Comply with Google Play Developer Program Policies
+
+
+
+Payments: Stretchy charges for physical services (yoga/movement sessions), which are exempt from Google Play's in-app billing requirement. Stripe payments are permitted.
+
+
+
+Health & fitness apps: If collecting health data (injuries, conditions from "Notes for host"), declare this in the Data Safety section.
+
+
+
+Privacy policy: Required — must be linked in the Play Store listing and within the app.
+
+
+
+
+
+
+
+
+
+
+
+Play Store listing requirements:
+
+
+
+
+
+
+
+
+
+
+
+App name: Stretchy (up to 30 characters)
+
+
+
+Short description: Up to 80 characters. Suggested: "Community movement. The more who join, the less you pay."
+
+
+
+Full description: Up to 4,000 characters. Same as App Store.
+
+
+
+Screenshots: Minimum 2, maximum 8 per device type (phone, tablet, Chromebook). Match iOS screenshots where possible.
+
+
+
+Feature graphic: 1024 × 500px. Use Stretchy wordmark on brand colour background.
+
+
+
+App icon: 512 × 512px PNG. Same as iOS — Stretchy S or wordmark.
+
+
+
+Category: Health & Fitness or Lifestyle
+
+
+
+Content rating: Complete the rating questionnaire. Likely "Everyone" or "Teen" rating.
+
+
+
+
+
+
+
+
+
+
+
+Technical requirements:
+
+
+
+
+
+
+
+
+
+
+
+Target SDK: Android API 34+ (required for new apps as of 2024 — verify current requirement)
+
+
+
+Minimum SDK: Android API 26 (8.0 Oreo) recommended
+
+
+
+64-bit compliance required
+
+
+
+Data Safety form: declare location data (session maps), financial data (Stripe payment info), personal info (name, email)
+
+
+
+App signing: Use Play App Signing (Google manages the key)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14.3 General App Store Best Practices
+
+
+
+ASO (App Store Optimisation): Front-load keywords in the App Store description. For Google Play, keywords in the description directly affect search ranking.
+
+
+
+Localisation: Launch with NZ English. Prepare Australian English variant for AU expansion.
+
+
+
+Review strategy: Trigger the in-app review prompt (StoreKit / Play In-App Review API) after a user completes their second session — they're warm and have experienced the core value.
+
+
+
+Crash-free rate: Both stores deprioritise apps with crash rates above 1%. Ensure thorough TestFlight / Play Internal Testing before public launch.
+
+
+
+Version naming: Use semantic versioning (1.0.0 = launch, 1.x.0 = feature updates, x.0.0 = major platform changes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15. LEGAL & COMPLIANCE
+
+
+
+
+
+15.1 Privacy Policy Requirements
+
+
+
+A privacy policy is mandatory for both App Store and Google Play submission.
+
+
+
+
+
+
+
+
+
+
+
+Must cover:
+
+
+
+
+
+
+
+
+
+
+
+What data is collected (name, email, phone, location, payment info, health notes)
+
+
+
+How it's used (booking management, pricing, communications, analytics)
+
+
+
+Third-party processors (Stripe, Google Maps, Supabase, Resend, Apple/Google login)
+
+
+
+User rights (access, correction, deletion — under NZ Privacy Act 2020 and Australian Privacy Act 1988)
+
+
+
+Data retention periods
+
+
+
+Contact for privacy enquiries: hello@stretchy.co.nz
+
+
+
+
+
+
+
+
+
+
+
+Jurisdiction: NZ Privacy Act 2020 (primary). Australian Privacy Act 1988 (for AU expansion). GDPR not required at launch (no EU users) but good practice.
+
+
+
+
+
+15.2 Terms of Service
+
+
+
+Required within the app. Must be accepted during onboarding. Must cover:
+
+
+
+
+
+
+
+
+
+
+
+Booking and payment terms (aligned with Disclaimer A)
+
+
+
+Cancellation policy
+
+
+
+Host responsibilities (aligned with Disclaimer C)
+
+
+
+Health and safety (aligned with Disclaimer B)
+
+
+
+Platform rules (no-show policy, community standards)
+
+
+
+Intellectual property
+
+
+
+Governing law: New Zealand
+
+
+
+
+
+15.3 Content Shared by Attendees / Hosts
+
+
+
+Photo/video uploads require explicit consent checkbox before submission
+
+
+
+Admin moderation queue reviews all content before use in marketing
+
+
+
+Never auto-publish attendee content
+
+
+
+Hosts must obtain verbal consent at sessions before sharing attendee content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16. FUTURE STATES (POST-LAUNCH)
+
+
+
+Multi-city expansion: Platform messaging ready. Local copy layer (neighbourhood-specific) to be built per market.
+
+
+
+Movement format expansion: Beyond yoga — run clubs, breathwork, pilates, sound baths, dance. Pricing engine works for all formats.
+
+
+
+Stretchy Merch: Waitlist capture live from launch. Community-designed, meaningful gear.
+
+
+
+Stretchy Rentals & Props: Mats, blocks, equipment hire for hosts. Reduces host barrier to entry.
+
+
+
+Multi-currency: NZD at launch, AUD for AU expansion, GBP/EUR for future markets.
+
+
+
+Stretchy Gift: Buy a friend a session (Stripe gift flow)
+
+
+
+Corporate Stretchy: B2B version for team wellness — community pricing mechanic works even better at company scale.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+17. OPEN ITEMS (PRE-BUILD)
+
+
+
+Carried forward from pre-Lovable gating list (snapshot 2026-05-26):
+
+
+
+
+
+
+
+
+
+
+
+Finalise Stripe Connect setup (host payouts)
+
+
+
+Confirm Apple Developer Program + Google Play account registration
+
+
+
+Confirm social handles (@stretchysocial on IG and TikTok — verify these are live)
+
+
+
+Confirm Substack URL (stretchy.substack.com — verify active)
+
+
+
+Draft Privacy Policy and Terms of Service (recommend legal review for NZ + AU)
+
+
+
+Source illustrator brief for continued hand-drawn illustration style
+
+
+
+Confirm venue capacity logic (backend-only until 80% trigger — confirm with Supabase schema)
+
+
+
+Finalise Admin CRM tool decision (Supabase-native MVP vs third-party)
+
+
+
+Confirm Google Maps API key setup and billing
+
+
+
+Test Apple iCal / EventKit calendar integration in TestFlight
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stretchy Social Movement · PRD v2 · May 2026 Master document for Claude Design + Lovable / Claude Code build Cross-check brand voice against brand-voice-guidelines.md in .claude/ before final copy goes live UX source: Stretchy_UX_User_Flow_v3.docx
+
+
+
+
+
+
+
+
+

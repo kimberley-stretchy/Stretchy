@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stretchy — Social Pricing Flow · Print</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: #F5EDE3;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: #1A1A1A;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @keyframes sBreath { 0%,100% { filter: none; } 50% { filter: drop-shadow(0 0 8px rgba(255,209,102,0.15)); } }
+    @keyframes menuSlideUp { from { transform: none; opacity: 1; } to { transform: none; opacity: 1; } }
+    @keyframes menuFadeIn { from { opacity: 1; } to { opacity: 1; } }
+
+    .page {
+      width: 297mm;
+      min-height: 210mm;
+      padding: 12mm 14mm;
+      background: #F5EDE3;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8mm;
+      border-bottom: 1px solid rgba(26,26,26,0.15);
+      padding-bottom: 4mm;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #888;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22pt;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .section-sub {
+      font-size: 10pt;
+      color: #888;
+      max-width: 60%;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10mm 8mm;
+      flex: 1;
+    }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .grid.four { grid-template-columns: repeat(4, 1fr); gap: 6mm; }
+
+    .artboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      break-inside: avoid;
+    }
+    .artboard-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #1A1A1A;
+      margin-bottom: 4mm;
+      text-align: center;
+    }
+    .phone-frame {
+      width: 60mm;
+      height: 130mm;
+      position: relative;
+      overflow: hidden;
+      transform-origin: top center;
+    }
+    .grid.two .phone-frame { width: 76mm; height: 165mm; }
+    .grid.four .phone-frame { width: 50mm; height: 108mm; }
+
+    .phone-frame .ios-stage {
+      transform-origin: top left;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #7A8330;
+      color: #F5EDE3;
+      padding: 22mm 22mm;
+      page-break-after: always;
+      break-after: page;
+      min-height: 210mm;
+      width: 297mm;
+    }
+    .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .cover-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 64pt;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+    .cover-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10pt;
+      letter-spacing: 0.16em;
+      opacity: 0.85;
+    }
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10pt;
+      letter-spacing: 0.10em;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      body { background: #F5EDE3; }
+      .page, .cover { box-shadow: none; }
+    }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script src="s-mark-svg.js"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="screens.jsx"></script>
+  <script type="text/babel" src="screens-attendee.jsx"></script>
+  <script type="text/babel" src="screens-host.jsx"></script>
+  <script type="text/babel" src="screens-admin.jsx"></script>
+  <script type="text/babel" src="screens-auth.jsx"></script>
+
+  <script type="text/babel">
+    const { useEffect, useRef } = React;
+
+    // A phone wrapper that scales the 402×874 design DOWN to fit the print cell.
+    function PhoneScaled({ children, menuOpen = false, designW = 402, designH = 874 }) {
+      const ref = useRef(null);
+      useEffect(() => {
+        if (!ref.current) return;
+        const frame = ref.current.parentElement;
+        const fit = () => {
+          const r = frame.getBoundingClientRect();
+          const sx = r.width / designW;
+          const sy = r.height / designH;
+          const s = Math.min(sx, sy);
+          ref.current.style.transform = `scale(${s})`;
+          ref.current.style.width = designW + 'px';
+          ref.current.style.height = designH + 'px';
+        };
+        fit();
+        window.addEventListener('resize', fit);
+        return () => window.removeEventListener('resize', fit);
+      }, []);
+      return (
+        <div ref={ref} className="ios-stage">
+          <IOSDevice width={designW} height={designH} dark={false}>
+            <MenuProvider initialOpen={menuOpen}>
+              <div style={{ position: 'relative', minHeight: '100%', paddingTop: 54 }}>
+                {children}
+                <MenuOverlay defaultTab="attendee" />
+              </div>
+            </MenuProvider>
+          </IOSDevice>
+        </div>
+      );
+    }
+
+    function Artboard({ label, screen, menuOpen }) {
+      return (
+        <div className="artboard">
+          <div className="artboard-label">{label}</div>
+          <div className="phone-frame">
+            <PhoneScaled menuOpen={menuOpen}>{screen}</PhoneScaled>
+          </div>
+        </div>
+      );
+    }
+
+    function Page({ tag, title, sub, cols = 3, children }) {
+      return (
+        <section className="page">
+          <header className="page-header">
+            <div>
+              <div className="section-tag">{tag}</div>
+              <h2 className="section-title">{title}</h2>
+            </div>
+            <div className="section-sub">{sub}</div>
+          </header>
+          <div className={'grid' + (cols === 2 ? ' two' : cols === 4 ? ' four' : '')}>
+            {children}
+          </div>
+        </section>
+      );
+    }
+
+    function Cover() {
+      return (
+        <section className="cover">
+          <div className="cover-top">
+            <div className="cover-meta">STRETCHY · SOCIAL PRICING<br/>FLOW v0.1 · MAY 2026</div>
+            <SMark size={120} color="#F5EDE3" />
+          </div>
+          <h1 className="cover-title">A social<br/>movement.</h1>
+          <div className="cover-bottom">
+            <span>32 SCREENS · ATTENDEE · HOST · STRETCHY HQ</span>
+            <span>FOR HANDOFF</span>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <Cover />
+
+          <Page tag="GET IN" title="Welcome + Login"
+                sub="The opening screen — the only place the full wordmark appears. Login is one screen with role tabs (some people are both).">
+            <Artboard label="A0a · Welcome"          screen={<ScreenWelcome />} />
+            <Artboard label="Log in · Attendee"      screen={<ScreenLoginAttendee />} />
+            <Artboard label="Log in · Host"          screen={<ScreenLoginHost />} />
+          </Page>
+
+          <Page tag="ONBOARDING" title="A0 · Setup"
+                sub="Four-step new-user setup: name → preferences → payment. Lands on Home (01) when done.">
+            <Artboard label="A0b · Sign up"          screen={<ScreenSignup />} />
+            <Artboard label="A0c · Preferences"      screen={<ScreenPreferences />} />
+            <Artboard label="A0d · Payment"          screen={<ScreenOnboarding />} />
+          </Page>
+
+          <Page tag="ATTENDEE" title="The Funnel"
+                sub="Home → Browse → Session Detail. Where the pricing engine lives." cols={4}>
+            <Artboard label="01 · Home"              screen={<ScreenHome />} />
+            <Artboard label="01 · Home · menu open"  screen={<ScreenHome />} menuOpen />
+            <Artboard label="02 · This Week"         screen={<ScreenThisWeek />} />
+            <Artboard label="03 · Session Detail"    screen={<ScreenSessionDetail />} />
+          </Page>
+
+          <Page tag="ATTENDEE" title="Hold → Confirmation"
+                sub="The emotional beats of the pricing engine. Hold today, confirmed at 36h, locked at 2h.">
+            <Artboard label="04 · Place Held"        screen={<ScreenPlaceHeld />} />
+            <Artboard label="A4 · Going Ahead"       screen={<ScreenGoingAhead />} />
+            <Artboard label="A4b · Cancelled"        screen={<ScreenCancelled />} />
+          </Page>
+
+          <Page tag="ATTENDEE" title="Post-session"
+                sub="Social Stretch happens IRL — the app sits back and supports the moment." cols={2}>
+            <Artboard label="05 · Social Stretch"    screen={<ScreenSocialStretch />} />
+            <Artboard label="A6 · Rate It"           screen={<ScreenRateIt />} />
+          </Page>
+
+          <Page tag="ATTENDEE" title="Account"
+                sub="Notifications, suggestions, and the profile shelf.">
+            <Artboard label="A7 · Notifications"     screen={<ScreenNotifications />} />
+            <Artboard label="A8 · Suggest"           screen={<ScreenSuggest />} />
+            <Artboard label="A9 · Profile"           screen={<ScreenProfile />} />
+          </Page>
+
+          <Page tag="HOST" title="Apply + Dashboard + New Session"
+                sub="Money in yellow, formula transparent, full control of the target.">
+            <Artboard label="06 · Apply"             screen={<ScreenApply />} />
+            <Artboard label="09 · Host Dashboard"    screen={<ScreenHostDashboard />} />
+            <Artboard label="07 · Add a Session"     screen={<ScreenAddSession />} />
+          </Page>
+
+          <Page tag="HOST" title="Running a Session"
+                sub="Roster, the floor-not-met escape hatch, host inbox, and the monthly payout." cols={4}>
+            <Artboard label="H1 · Manage Session"    screen={<ScreenManageSession />} />
+            <Artboard label="08 · Floor Not Met"     screen={<ScreenFloorNotMet />} />
+            <Artboard label="H3 · Host Inbox"        screen={<ScreenHostInbox />} />
+            <Artboard label="H2 · Monthly Payout"    screen={<ScreenPayout />} />
+          </Page>
+
+          <Page tag="STRETCHY HQ" title="People + Pipeline"
+                sub="Vetting queue, live oversight, community pipeline. The platform on the go.">
+            <Artboard label="ADM-01 · Vetting"       screen={<ScreenAdmVetting />} />
+            <Artboard label="ADM-02 · Live Platform" screen={<ScreenAdmLive />} />
+            <Artboard label="ADM-03 · Suggestions"   screen={<ScreenAdmSuggestions />} />
+          </Page>
+
+          <Page tag="STRETCHY HQ" title="Money + CRM"
+                sub="Finance, attendee + host CRMs with health score, content moderation, analytics." cols={4}>
+            <Artboard label="ADM-04 · Finance"       screen={<ScreenAdmFinance />} />
+            <Artboard label="ADM-05 · Attendee CRM"  screen={<ScreenAdmAttendeeCRM />} />
+            <Artboard label="ADM-06 · Host CRM"      screen={<ScreenAdmHostCRM />} />
+            <Artboard label="ADM-07 · Moderation"    screen={<ScreenAdmModeration />} />
+          </Page>
+
+          <Page tag="STRETCHY HQ" title="Analytics"
+                sub="Sessions, conversions, neighbourhood heat — the platform health snapshot.">
+            <Artboard label="ADM-08 · Analytics"     screen={<ScreenAdmAnalytics />} />
+          </Page>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+    // Auto-print once everything's settled
+    (async () => {
+      try { await document.fonts.ready; } catch (e) {}
+      await new Promise(r => setTimeout(r, 1500));
+      window.print();
+    })();
+  </script>
+</body>
+</html>
