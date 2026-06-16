@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #F5EDE3;
+  --color-olive: #7A8330;
+  --color-yellow: #FFD166;
+  --color-blue: #2C8FE0;
+  --color-purple: #A535C7;
+  --color-sky: #4FB8E0;
+  --color-orange: #FF6B35;
+  --color-green: #4CAF82;
+  --color-hold: #A8D5E2;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Bagel Fat One', 'Arial Black', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #F5EDE3;
+  color: #1A1A1A;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Range slider styling */
+.stretchy-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.stretchy-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1A1A1A;
+  border: 3px solid #F5EDE3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.stretchy-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1A1A1A;
+  border: 3px solid #F5EDE3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
