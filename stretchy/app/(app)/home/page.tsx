@@ -7,21 +7,21 @@ export default async function HomePage() {
   const { data: { user } } = await supabase.auth.getUser();
 
   const { data: profile } = await supabase
-    .from('profiles')
-    .select('display_name')
-    .eq('id', user!.id)
+    .from('attendees')
+    .select('name')
+    .eq('auth_user_id', user!.id)
     .single();
 
   const now = new Date().toISOString();
   const { data: sessions } = await supabase
     .from('sessions')
-    .select('*, host:hosts(display_name, avatar_url), holds(count)')
+    .select('*, host:hosts(name, avatar_url), holds(count)')
     .eq('state', 'open')
     .gte('starts_at', now)
     .order('starts_at', { ascending: true })
     .limit(10);
 
-  const firstName = profile?.display_name?.split(' ')[0] ?? 'there';
+  const firstName = profile?.name?.split(' ')[0] ?? 'there';
   const greeting = getGreeting();
 
   return (

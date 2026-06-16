@@ -12,7 +12,7 @@ export default async function SessionDetailPage({ params }: Props) {
 
   const { data: session } = await supabase
     .from('sessions')
-    .select('*, host:hosts(id, display_name, avatar_url, bio), holds(id, user_id, state)')
+    .select('*, host:hosts(id, name, avatar_url, bio), holds(id, user_id, state)')
     .eq('id', id)
     .single();
 

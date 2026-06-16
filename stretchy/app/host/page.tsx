@@ -17,7 +17,7 @@ export default async function HostDashboard() {
   const { data: host } = await supabase
     .from('hosts')
     .select('*')
-    .eq('user_id', user.id)
+    .eq('auth_user_id', user.id)
     .single();
 
   if (!host) redirect('/host/apply');
@@ -56,7 +56,7 @@ export default async function HostDashboard() {
                 color: '#1A1A1A',
               }}
             >
-              {host.display_name}
+              {host.name}
             </h1>
           </div>
           <Link

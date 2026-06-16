@@ -13,7 +13,7 @@ export default async function SessionsPage({
   const now = new Date().toISOString();
   let query = supabase
     .from('sessions')
-    .select('*, host:hosts(display_name, avatar_url), holds(count)')
+    .select('*, host:hosts(name, avatar_url), holds(count)')
     .eq('state', 'open')
     .gte('starts_at', now)
     .order('starts_at', { ascending: true })

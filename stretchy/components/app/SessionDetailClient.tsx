@@ -31,7 +31,7 @@ interface Session {
   state: string;
   host: {
     id: string;
-    display_name: string;
+    name: string;
     avatar_url?: string;
     bio?: string;
   };
@@ -311,7 +311,7 @@ export function SessionDetailClient({ session, userHold, holdCount: initialCount
                 flexShrink: 0,
               }}
             >
-              {session.host.display_name[0]}
+              {session.host.name[0]}
             </div>
             <div>
               <div
@@ -334,7 +334,7 @@ export function SessionDetailClient({ session, userHold, holdCount: initialCount
                   color: '#1A1A1A',
                 }}
               >
-                {session.host.display_name}
+                {session.host.name}
               </div>
             </div>
           </div>

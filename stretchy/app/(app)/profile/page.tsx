@@ -9,15 +9,15 @@ export default async function ProfilePage() {
   if (!user) redirect('/login');
 
   const { data: profile } = await supabase
-    .from('profiles')
+    .from('attendees')
     .select('*')
-    .eq('id', user.id)
+    .eq('auth_user_id', user.id)
     .single();
 
   const { data: host } = await supabase
     .from('hosts')
     .select('id')
-    .eq('user_id', user.id)
+    .eq('auth_user_id', user.id)
     .single();
 
   const { data: holdStats } = await supabase
@@ -46,7 +46,7 @@ export default async function ProfilePage() {
             margin: '0 auto 16px',
           }}
         >
-          {profile?.display_name?.[0] ?? user.email?.[0]?.toUpperCase() ?? '?'}
+          {profile?.name?.[0] ?? user.email?.[0]?.toUpperCase() ?? '?'}
         </div>
         <h1
           style={{
@@ -58,7 +58,7 @@ export default async function ProfilePage() {
             color: '#1A1A1A',
           }}
         >
-          {profile?.display_name ?? 'Your name'}
+          {profile?.name ?? 'Your name'}
         </h1>
         <p style={{ margin: 0, fontSize: 14, color: '#888', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.04em' }}>
           {user.email}

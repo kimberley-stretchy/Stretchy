@@ -12,7 +12,7 @@ interface SessionCardProps {
     min_attendees: number;
     max_attendees: number;
     holds?: { count: number }[];
-    host?: { display_name: string; avatar_url?: string };
+    host?: { name: string; avatar_url?: string };
   };
 }
 
