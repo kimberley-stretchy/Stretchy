@@ -8,10 +8,16 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   if (!user) redirect('/login');
 
+  const { data: host } = await supabase
+    .from('hosts')
+    .select('id')
+    .eq('auth_user_id', user.id)
+    .single();
+
   return (
     <div style={{ background: '#F5EDE3', minHeight: '100dvh', paddingBottom: 80 }}>
       {children}
-      <BottomNav />
+      <BottomNav isHost={!!host} />
     </div>
   );
 }
