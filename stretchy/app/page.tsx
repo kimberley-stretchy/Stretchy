@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import { Nav } from '@/components/landing/Nav';
 import { Hero } from '@/components/landing/Hero';
 import { PricingMechanic } from '@/components/landing/PricingMechanic';
@@ -7,7 +8,14 @@ import { Story } from '@/components/landing/Story';
 import { Waitlist } from '@/components/landing/Waitlist';
 import { Footer } from '@/components/landing/Footer';
 
-export default function LandingPage() {
+interface Props {
+  searchParams: Promise<{ code?: string; token_hash?: string; type?: string }>;
+}
+
+export default async function LandingPage({ searchParams }: Props) {
+  const params = await searchParams;
+  if (params.code) redirect(`/auth/callback?code=${params.code}`);
+  if (params.token_hash && params.type) redirect(`/auth/callback?token_hash=${params.token_hash}&type=${params.type}`);
   return (
     <div style={{ background: '#F5EDE3' }}>
       <Nav />
