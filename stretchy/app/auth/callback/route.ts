@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) return NextResponse.redirect(`${origin}${next}`);
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent(error.message)}`);
   }
 
   // Magic link / email OTP flow
