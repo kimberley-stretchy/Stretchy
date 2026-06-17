@@ -2,6 +2,7 @@ import { Nav } from '@/components/landing/Nav';
 import { Hero } from '@/components/landing/Hero';
 import { PricingMechanic } from '@/components/landing/PricingMechanic';
 import { HowItWorks } from '@/components/landing/HowItWorks';
+import { ExploreApp } from '@/components/landing/ExploreApp';
 import { ForMovers } from '@/components/landing/ForMovers';
 import { ForHosts } from '@/components/landing/ForHosts';
 import { Story } from '@/components/landing/Story';
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <Hero />
       <PricingMechanic />
       <HowItWorks />
+      <ExploreApp />
       <div style={{ maxWidth: 1180, margin: '0 auto', padding: '0 24px' }}>
         <ForMovers />
       </div>
