@@ -54,8 +54,8 @@ export function Hero() {
               <a href="#waitlist">
                 <button style={btnSecondary}>Join the waitlist →</button>
               </a>
-              <a href="#how">
-                <button style={btnGhost}>How it works</button>
+              <a href="#explore">
+                <button style={btnGhost}>Explore the app</button>
               </a>
             </div>
             <p style={{ margin: '26px 0 0', fontSize: 14, opacity: 0.7, maxWidth: 420, lineHeight: 1.5 }}>
