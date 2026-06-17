@@ -42,9 +42,10 @@ interface Props {
   userHold: Hold | null;
   holdCount: number;
   userId: string;
+  hasPaymentMethod: boolean;
 }
 
-export function SessionDetailClient({ session, userHold, holdCount: initialCount, userId }: Props) {
+export function SessionDetailClient({ session, userHold, holdCount: initialCount, userId, hasPaymentMethod }: Props) {
   const [holdCount, setHoldCount] = useState(initialCount);
   const [myHold, setMyHold] = useState(userHold);
   const [loading, setLoading] = useState(false);
@@ -66,6 +67,10 @@ export function SessionDetailClient({ session, userHold, holdCount: initialCount
   const gateLabel = gateTime.toLocaleDateString('en-NZ', { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', hour12: true });
 
   const placeHold = async () => {
+    if (!hasPaymentMethod) {
+      router.push(`/billing?next=/sessions/${session.id}`);
+      return;
+    }
     setLoading(true);
     const res = await fetch('/api/holds', {
       method: 'POST',
@@ -426,7 +431,7 @@ export function SessionDetailClient({ session, userHold, holdCount: initialCount
               cursor: loading || spotsLeft <= 0 ? 'not-allowed' : 'pointer',
             }}
           >
-            {loading ? 'Placing hold…' : spotsLeft <= 0 ? 'Session full' : `Hold a spot · $${currentPrice} max`}
+            {loading ? 'Placing hold…' : spotsLeft <= 0 ? 'Session full' : !hasPaymentMethod ? 'Add card to hold →' : `Hold a spot · $${currentPrice} max`}
           </button>
         )}
       </div>

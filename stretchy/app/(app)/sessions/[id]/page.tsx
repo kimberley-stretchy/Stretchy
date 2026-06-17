@@ -23,12 +23,19 @@ export default async function SessionDetailPage({ params }: Props) {
   const userHold = session.holds?.find((h: { user_id: string }) => h.user_id === user?.id) ?? null;
   const holdCount = session.holds?.filter((h: { state: string }) => h.state === 'active').length ?? 0;
 
+  const { data: attendee } = await supabase
+    .from('attendees')
+    .select('stripe_pm_id')
+    .eq('auth_user_id', user!.id)
+    .single();
+
   return (
     <SessionDetailClient
       session={session}
       userHold={userHold}
       holdCount={holdCount}
       userId={user?.id ?? ''}
+      hasPaymentMethod={!!attendee?.stripe_pm_id}
     />
   );
 }
