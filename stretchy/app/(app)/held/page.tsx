@@ -25,12 +25,12 @@ export default async function HeldPage() {
       )
     `)
     .eq('user_id', user!.id)
-    .eq('state', 'active')
+    .in('state', ['active', 'confirmed', 'cancelled'])
     .order('created_at', { ascending: false });
 
   return (
     <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px' }}>
-      <div style={{ padding: '56px 0 24px' }}>
+      <div style={{ padding: '56px 0 8px' }}>
         <h1
           style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",
@@ -43,6 +43,19 @@ export default async function HeldPage() {
         >
           My holds
         </h1>
+      </div>
+
+      {/* Gate notice */}
+      <div
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11,
+          color: '#7A8330',
+          letterSpacing: '0.06em',
+          marginBottom: 24,
+        }}
+      >
+        No charge until confirmed at the 36h gate.
       </div>
 
       {!holds?.length ? (
@@ -101,8 +114,49 @@ export default async function HeldPage() {
                     borderRadius: 24,
                     padding: 20,
                     border: `1.5px solid ${isConfirmed ? '#7A8330' : isCancelled ? 'rgba(26,26,26,0.08)' : 'rgba(26,26,26,0.08)'}`,
+                    borderLeft: isConfirmed ? '4px solid #7A8330' : undefined,
                   }}
                 >
+                  {/* Confirmed banner */}
+                  {isConfirmed && (
+                    <div
+                      style={{
+                        background: '#7A8330',
+                        color: '#F5EDE3',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: '0.14em',
+                        padding: '6px 12px',
+                        borderRadius: 12,
+                        marginBottom: 14,
+                        display: 'inline-block',
+                      }}
+                    >
+                      ✓ CONFIRMED
+                    </div>
+                  )}
+
+                  {/* Cancelled banner */}
+                  {isCancelled && (
+                    <div
+                      style={{
+                        background: 'rgba(26,26,26,0.06)',
+                        color: '#999',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: '0.14em',
+                        padding: '6px 12px',
+                        borderRadius: 12,
+                        marginBottom: 14,
+                        display: 'inline-block',
+                      }}
+                    >
+                      CANCELLED
+                    </div>
+                  )}
+
                   <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
                     <div
                       style={{
@@ -146,30 +200,47 @@ export default async function HeldPage() {
                         {dayLabel} · {timeLabel} · {s.location_name}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <div
-                          style={{
-                            fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                            fontWeight: 700,
-                            fontSize: 20,
-                            color: isCancelled ? '#CCC' : '#FFD166',
-                          }}
-                        >
-                          ${price}
+                        <div>
+                          <span
+                            style={{
+                              fontFamily: "'Bagel Fat One', system-ui, sans-serif",
+                              fontWeight: 400,
+                              fontSize: isConfirmed ? 24 : 20,
+                              color: isCancelled ? '#CCC' : '#FFD166',
+                            }}
+                          >
+                            ${price}
+                          </span>
+                          {isConfirmed && (
+                            <span
+                              style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: 10,
+                                color: '#7A8330',
+                                letterSpacing: '0.06em',
+                                marginLeft: 8,
+                              }}
+                            >
+                              FINAL PRICE
+                            </span>
+                          )}
                         </div>
-                        <div
-                          style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: 10,
-                            fontWeight: 700,
-                            letterSpacing: '0.12em',
-                            padding: '4px 10px',
-                            borderRadius: 9999,
-                            background: isConfirmed ? '#7A8330' : isCancelled ? 'rgba(26,26,26,0.08)' : 'rgba(26,26,26,0.06)',
-                            color: isConfirmed ? '#F5EDE3' : isCancelled ? '#999' : '#666',
-                          }}
-                        >
-                          {isConfirmed ? 'CONFIRMED' : isCancelled ? 'CANCELLED' : `GATE ${gateLabel}`}
-                        </div>
+                        {!isConfirmed && !isCancelled && (
+                          <div
+                            style={{
+                              fontFamily: "'JetBrains Mono', monospace",
+                              fontSize: 10,
+                              fontWeight: 700,
+                              letterSpacing: '0.12em',
+                              padding: '4px 10px',
+                              borderRadius: 9999,
+                              background: 'rgba(26,26,26,0.06)',
+                              color: '#666',
+                            }}
+                          >
+                            GATE {gateLabel}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
