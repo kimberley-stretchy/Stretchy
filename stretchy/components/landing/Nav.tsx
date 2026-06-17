@@ -36,7 +36,7 @@ export function Nav() {
       >
         <SMark size={32} color="#7A8330" />
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <a href="#explore" style={navLink}>Explore the app</a>
+          <a href="/home" style={navLink}>Explore the app</a>
           <a href="#waitlist" style={navLink}>Join the waitlist</a>
           <a
             href="/login"

@@ -193,7 +193,7 @@ export function Hero() {
               <a href="#waitlist">
                 <button style={btnSecondary}>Join the waitlist →</button>
               </a>
-              <a href="#explore">
+              <a href="/home">
                 <button style={btnGhost}>Explore the app</button>
               </a>
             </div>
