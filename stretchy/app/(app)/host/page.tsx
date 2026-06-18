@@ -201,19 +201,27 @@ export default async function HostDashboard() {
         </div>
       )}
 
-      {/* Payout tile — yellow */}
-      <div style={{ margin: '14px 14px 0', padding: 18, borderRadius: 24, background: '#FFD166', color: '#1A1A1A', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.14em' }}>NEXT PAYOUT</span>
-          <div style={{ display: 'flex', alignItems: 'baseline', marginTop: 4 }}>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 14, fontWeight: 700 }}>$</span>
-            <span style={{ fontFamily: "'Bagel Fat One', system-ui, sans-serif", fontSize: 38, lineHeight: 0.9, fontWeight: 400, letterSpacing: '-0.02em' }}>
-              {confirmedSessions.reduce((sum, s) => sum + (s.host_target ?? 0), 0)}
-            </span>
+      {/* Quick links — Inbox + Payout */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, padding: '14px 14px 0' }}>
+        <Link href="/host/inbox" style={{ textDecoration: 'none' }}>
+          <div style={{ background: '#A535C7', color: '#F5EDE3', padding: '18px 16px', borderRadius: 24 }}>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.14em' }}>INBOX</div>
+            <div style={{ fontFamily: "'Bagel Fat One', system-ui, sans-serif", fontSize: 26, lineHeight: 0.95, marginTop: 6 }}>✉</div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, marginTop: 4, opacity: 0.7 }}>notifications →</div>
           </div>
-          <span style={{ fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>{confirmedSessions.length} confirmed sessions →</span>
-        </div>
-        <SMark size={56} color="#1A1A1A" />
+        </Link>
+        <Link href="/host/payout" style={{ textDecoration: 'none' }}>
+          <div style={{ background: '#FFD166', color: '#1A1A1A', padding: '18px 16px', borderRadius: 24 }}>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.14em' }}>PAYOUT</div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 2, marginTop: 6 }}>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 700 }}>$</span>
+              <span style={{ fontFamily: "'Bagel Fat One', system-ui, sans-serif", fontSize: 30, lineHeight: 0.9 }}>
+                {confirmedSessions.reduce((sum, s) => sum + (s.host_target ?? 0), 0)}
+              </span>
+            </div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, marginTop: 4, opacity: 0.7 }}>pending →</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
