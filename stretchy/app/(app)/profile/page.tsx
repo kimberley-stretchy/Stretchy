@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import { SMark } from '@/components/ui/SMark';
 import Link from 'next/link';
+import { NotificationToggles } from './NotificationToggles';
 
 export default async function ProfilePage() {
   const supabase = await createClient();
@@ -10,7 +11,7 @@ export default async function ProfilePage() {
 
   const { data: attendee } = await supabase
     .from('attendees')
-    .select('name, email, stripe_pm_id')
+    .select('name, email, stripe_pm_id, notification_email, notification_push')
     .eq('auth_user_id', user.id)
     .single();
 
@@ -221,26 +222,10 @@ export default async function ProfilePage() {
             <span style={{ opacity: 0.35, fontSize: 16 }}>→</span>
           </Link>
 
-          <div style={{
-            ...rowStyle,
-            margin: '0 20px',
-            borderBottom: 'none',
-          }}>
-            <span style={{ fontWeight: 600, fontSize: 15 }}>Notifications</span>
-            <div style={{
-              width: 44, height: 26, borderRadius: 9999,
-              background: 'rgba(26,26,26,0.15)',
-              position: 'relative',
-              cursor: 'pointer',
-            }}>
-              <div style={{
-                width: 20, height: 20,
-                borderRadius: 9999, background: '#FFFFFF',
-                position: 'absolute', top: 3, left: 3,
-                boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
-              }} />
-            </div>
-          </div>
+          <NotificationToggles
+            notificationEmail={attendee?.notification_email ?? true}
+            notificationPush={attendee?.notification_push ?? true}
+          />
         </div>
       </div>
 
