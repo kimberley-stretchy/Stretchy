@@ -226,6 +226,49 @@ function LoginForm() {
         </div>
       )}
 
+      {/* How it works — mover only */}
+      {!isHost && !sent && (
+        <div style={{ padding: '20px 14px 0' }}>
+          <div style={{ padding: 20, borderRadius: 28, background: '#FFD166', color: '#1A1A1A' }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.16em' }}>
+              HOW TO STRETCHY
+            </span>
+            <h3 style={{
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontWeight: 700, fontSize: 22, lineHeight: 0.95,
+              letterSpacing: '-0.01em', margin: '8px 0 12px',
+            }}>
+              The more who join,<br />the less you pay.
+            </h3>
+            <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {[
+                { lead: 'A host lists a session.', body: 'They set a minimum to make it viable, a max capacity and a price target. Price starts at its max.' },
+                { lead: 'Hold your spot.', body: 'No charge yet. You see the most you\'d ever pay and how many people are needed to go ahead.' },
+                { lead: 'The more who hold, the lower the price.', body: 'Every new hold splits the cost. Price drops live. Tell a mate, tell a random, invite a date.' },
+                { lead: '36hr timeframe — go or no go.', body: 'Minimum met? Confirmed, and you\'re locked in. If not, all holds are released. No charge.' },
+                { lead: 'Drops till 2 hours out, then doors close.', body: 'More people can still join and push the price down. At 2 hours out your card is charged at the final price.' },
+                { lead: 'Show up. Move. Social stretch.', body: '✌️', celebrate: true },
+              ].map((step, i) => (
+                <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                  <span style={{
+                    width: 20, height: 20, borderRadius: 999,
+                    background: step.celebrate ? '#2C8FE0' : '#1A1A1A',
+                    color: step.celebrate ? '#F5EDE3' : '#FFD166',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, flexShrink: 0, marginTop: 1,
+                  }}>{i + 1}</span>
+                  <span style={{ fontSize: 12, lineHeight: 1.4 }}>
+                    <strong>{step.lead}</strong>
+                    {step.body && step.body !== '✌️' ? ' ' + step.body : ''}
+                    {step.body === '✌️' && <span style={{ marginLeft: 4, fontSize: 14 }}>✌️</span>}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )}
+
       {/* Apply to host */}
       {isHost && !sent && (
         <div style={{ margin: '20px 14px 0', padding: 16, borderRadius: 20, background: '#F5EDE3', color: '#1A1A1A', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}

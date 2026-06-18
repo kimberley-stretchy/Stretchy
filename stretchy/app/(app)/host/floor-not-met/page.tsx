@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { SMark } from '@/components/ui/SMark';
 import { FloorNotMetActions } from './FloorNotMetActions';
 
+
 export default async function FloorNotMetPage({
   searchParams,
 }: {
@@ -55,7 +56,9 @@ export default async function FloorNotMetPage({
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <SMark size={32} color="#F5EDE3" />
+        <Link href="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <SMark size={32} color="#F5EDE3" />
+        </Link>
         <div
           style={{
             padding: '7px 14px',

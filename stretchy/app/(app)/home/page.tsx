@@ -119,6 +119,18 @@ export default async function HomePage() {
             <span style={{ fontSize: 18 }}>→</span>
           </div>
         </Link>
+
+        <Link href="/suggest" style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center' }}>
+          <span style={{
+            fontFamily: "'Space Grotesk', system-ui, sans-serif",
+            fontSize: 14,
+            color: '#F5EDE3',
+            opacity: 0.7,
+            padding: '8px 16px',
+          }}>
+            Suggest a session →
+          </span>
+        </Link>
       </div>
 
       {/* HOW TO STRETCHY yellow card */}
