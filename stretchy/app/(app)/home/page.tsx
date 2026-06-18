@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase-server';
 import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 import Link from 'next/link';
 
 const HOW_TO_STRETCHY = [
@@ -34,7 +35,7 @@ export default async function HomePage() {
     <div style={{ background: '#7A8330', color: '#F5EDE3', minHeight: '100dvh', fontFamily: "'Space Grotesk', system-ui, sans-serif", paddingBottom: 100, position: 'relative', overflow: 'hidden' }}>
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <SMark size={36} color="#F5EDE3" />
+        <AppMenuButton size={36} color="#F5EDE3" />
         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: '#F5EDE3', opacity: 0.7 }}>
           AUCKLAND · THIS WEEK
         </span>

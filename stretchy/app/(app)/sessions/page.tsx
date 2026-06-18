@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase-server';
 import { SessionCard } from '@/components/app/SessionCard';
-import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 import { MOVEMENT_TYPES } from '@/lib/brand';
 
 export default async function SessionsPage({
@@ -29,7 +29,7 @@ export default async function SessionsPage({
     <div style={{ background: '#F5EDE3', minHeight: '100dvh', fontFamily: "'Space Grotesk', system-ui, sans-serif", paddingBottom: 120 }}>
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <SMark size={32} color="#1A1A1A" />
+        <AppMenuButton />
         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(26,26,26,0.5)' }}>
           THIS WEEK
         </span>

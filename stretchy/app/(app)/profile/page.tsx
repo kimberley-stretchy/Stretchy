@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
-import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 import Link from 'next/link';
 import { NotificationToggles } from './NotificationToggles';
 
@@ -63,7 +63,7 @@ export default async function ProfilePage() {
       paddingBottom: 100,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', padding: '54px 22px 0' }}>
-        <SMark size={28} color="#1A1A1A" />
+        <AppMenuButton size={28} />
         <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
           <span style={{
             background: '#1A1A1A', color: '#F5EDE3',

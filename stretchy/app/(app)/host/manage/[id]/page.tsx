@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -111,7 +111,7 @@ export default async function ManageSessionPage({
         >
           {session.title}
         </div>
-        <SMark size={32} color="#1A1A1A" />
+        <AppMenuButton />
       </div>
 
       <div

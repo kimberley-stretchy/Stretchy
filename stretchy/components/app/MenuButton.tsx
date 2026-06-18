@@ -8,9 +8,11 @@ interface MenuButtonProps {
   userName?: string;
   userEmail?: string;
   isHost?: boolean;
+  color?: string;
+  size?: number;
 }
 
-export function MenuButton({ userName, userEmail, isHost = false }: MenuButtonProps) {
+export function MenuButton({ userName, userEmail, isHost = false, color = '#1A1A1A', size = 32 }: MenuButtonProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -32,7 +34,7 @@ export function MenuButton({ userName, userEmail, isHost = false }: MenuButtonPr
           transition: 'opacity 0.15s',
         }}
       >
-        <SMark size={32} color="#1A1A1A" />
+        <SMark size={size} color={color} />
       </button>
 
       <MenuDrawer
