@@ -36,6 +36,7 @@ interface PayoutSession {
   host_target: number;
   starts_at: string;
   paid_out: boolean | null;
+  host_paid_at: string | null;
   host: { name: string } | null;
 }
 
@@ -67,6 +68,7 @@ export default function AdminPage() {
   const [liveSessions, setLiveSessions] = useState<LiveSession[]>([]);
   const [payoutSessions, setPayoutSessions] = useState<PayoutSession[]>([]);
   const [loadingAction, setLoadingAction] = useState<string | null>(null);
+  const [paidSessionIds, setPaidSessionIds] = useState<Set<string>>(new Set());
   const [authorized, setAuthorized] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -144,6 +146,15 @@ export default function AdminPage() {
       body: JSON.stringify({ applicationId: app.id }),
     });
     setRejectedIds((prev) => new Set([...prev, app.user_id]));
+    setLoadingAction(null);
+  }
+
+  async function handleMarkPaid(sessionId: string) {
+    setLoadingAction(sessionId + '-pay');
+    const res = await fetch(`/api/admin/payouts/${sessionId}`, { method: 'POST' });
+    if (res.ok) {
+      setPaidSessionIds((prev) => new Set([...prev, sessionId]));
+    }
     setLoadingAction(null);
   }
 
@@ -491,21 +502,41 @@ export default function AdminPage() {
                         >
                           ${s.host_target}
                         </span>
-                        <button
-                          style={{
-                            background: '#1A1A1A',
-                            color: '#F5EDE3',
-                            border: 'none',
-                            borderRadius: 999,
-                            padding: '9px 16px',
-                            ...BODY,
-                            fontWeight: 700,
-                            fontSize: 13,
-                            cursor: 'pointer',
-                          }}
-                        >
-                          Mark as paid
-                        </button>
+                        {paidSessionIds.has(s.id) || s.host_paid_at ? (
+                          <div
+                            style={{
+                              background: '#7A8330',
+                              color: '#F5EDE3',
+                              borderRadius: 9999,
+                              padding: '9px 16px',
+                              ...MONO,
+                              fontSize: 11,
+                              fontWeight: 700,
+                              letterSpacing: '0.1em',
+                            }}
+                          >
+                            ✓ PAID
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => handleMarkPaid(s.id)}
+                            disabled={loadingAction !== null}
+                            style={{
+                              background: '#1A1A1A',
+                              color: '#F5EDE3',
+                              border: 'none',
+                              borderRadius: 999,
+                              padding: '9px 16px',
+                              ...BODY,
+                              fontWeight: 700,
+                              fontSize: 13,
+                              cursor: loadingAction ? 'not-allowed' : 'pointer',
+                              opacity: loadingAction === s.id + '-pay' ? 0.5 : 1,
+                            }}
+                          >
+                            {loadingAction === s.id + '-pay' ? 'Marking…' : 'Mark as paid'}
+                          </button>
+                        )}
                       </div>
                     </div>
                   );

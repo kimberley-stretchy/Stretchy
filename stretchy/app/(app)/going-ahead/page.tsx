@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { GoingAheadActions } from './GoingAheadActions';
 
 const STRETCHY_FEE = 20;
 
@@ -153,14 +154,7 @@ export default async function GoingAheadPage({
       </div>
 
       <div style={{ padding: '16px 14px 0' }}>
-        <button style={{
-          width: '100%', padding: '18px 24px', borderRadius: 9999,
-          border: 'none', background: '#F5EDE3', color: '#1A1A1A',
-          fontFamily: "'Space Grotesk', system-ui, sans-serif",
-          fontWeight: 700, fontSize: 15, cursor: 'pointer',
-        }}>
-          ＋ Bring a mate — drop the price again
-        </button>
+        <GoingAheadActions sessionId={s.id} />
       </div>
 
       {s.social_stretch_venue && (

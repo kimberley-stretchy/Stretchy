@@ -86,15 +86,43 @@ export async function GET(req: NextRequest) {
           // No payment method on file — confirm hold, charge manually later
           await supabase.from('holds').update({ state: 'confirmed' }).eq('id', hold.id);
         }
+
+        // Insert going_ahead notification for this hold's user
+        await supabase.from('notifications').insert({
+          user_id: hold.user_id,
+          type: 'going_ahead',
+          session_id: session.id,
+          data: { title: session.title, price: finalPrice },
+        });
       }
 
       confirmed++;
     } else {
       // Cancel — floor not met, release all holds
+
+      // 1. Get active hold user_ids before releasing
+      const { data: activeHolds } = await supabase
+        .from('holds')
+        .select('id, user_id')
+        .eq('session_id', session.id)
+        .eq('state', 'active');
+
+      // 2. Release all holds and cancel session
       await supabase.from('sessions').update({ state: 'cancelled' }).eq('id', session.id);
       await supabase.from('holds').update({ state: 'released' })
         .eq('session_id', session.id)
         .eq('state', 'active');
+
+      // 3. Insert cancelled notifications for each released hold
+      for (const h of activeHolds ?? []) {
+        await supabase.from('notifications').insert({
+          user_id: h.user_id,
+          type: 'cancelled',
+          session_id: session.id,
+          data: { title: session.title },
+        });
+      }
+
       cancelled++;
     }
   }
