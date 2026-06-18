@@ -9,6 +9,7 @@ export default function ApplyPage() {
     full_name: '',
     email: '',
     specialty: '',
+    specialty_other: '',
     bio: '',
     instagram: '',
   });
@@ -16,6 +17,7 @@ export default function ApplyPage() {
   const [loading, setLoading] = useState(false);
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
+  const isOther = form.specialty === 'other';
 
   const submit = async () => {
     if (!form.full_name || !form.email) return;
@@ -23,7 +25,10 @@ export default function ApplyPage() {
     await fetch('/api/host/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        ...form,
+        specialty: form.specialty === 'other' ? form.specialty_other : form.specialty,
+      }),
     });
     setLoading(false);
     setDone(true);
@@ -118,7 +123,17 @@ export default function ApplyPage() {
             {MOVEMENT_TYPES.map((m) => (
               <option key={m.id} value={m.id}>{m.emoji} {m.label}</option>
             ))}
+            <option value="other">✏️ Other — please specify</option>
           </select>
+          {isOther && (
+            <input
+              value={form.specialty_other}
+              onChange={(e) => update('specialty_other', e.target.value)}
+              placeholder="What do you teach? e.g. Dance, Martial Arts, Pilates…"
+              style={inputStyle}
+              autoFocus
+            />
+          )}
           <textarea
             value={form.bio}
             onChange={(e) => update('bio', e.target.value)}
@@ -134,7 +149,7 @@ export default function ApplyPage() {
           />
           <button
             onClick={submit}
-            disabled={loading || !form.full_name || !form.email}
+            disabled={loading || !form.full_name || !form.email || (isOther && !form.specialty_other.trim())}
             style={{
               padding: '18px 0',
               borderRadius: 9999,
@@ -145,7 +160,7 @@ export default function ApplyPage() {
               fontWeight: 700,
               fontSize: 16,
               cursor: loading || !form.full_name || !form.email ? 'not-allowed' : 'pointer',
-              opacity: !form.full_name || !form.email ? 0.5 : 1,
+              opacity: (!form.full_name || !form.email || (isOther && !form.specialty_other.trim())) ? 0.5 : 1,
               marginTop: 8,
             }}
           >

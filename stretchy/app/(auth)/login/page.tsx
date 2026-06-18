@@ -95,6 +95,20 @@ function LoginForm() {
         <p style={{ margin: '10px 8px 0', fontSize: 11, opacity: 0.65, textAlign: 'center', lineHeight: 1.4 }}>
           Some people are both. Either log-in unlocks the same account.
         </p>
+        <p style={{ margin: '8px 8px 0', fontSize: 12, opacity: 0.7, textAlign: 'center', lineHeight: 1.4 }}>
+          New here?{' '}
+          <a
+            href="/signup"
+            style={{
+              color: fg,
+              fontWeight: 700,
+              textDecoration: 'underline',
+              textUnderlineOffset: 3,
+            }}
+          >
+            Sign up →
+          </a>
+        </p>
       </div>
 
       {/* Hero */}
