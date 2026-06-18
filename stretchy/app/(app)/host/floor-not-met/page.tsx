@@ -204,7 +204,7 @@ export default async function FloorNotMetPage({
           letterSpacing: '0.04em',
         }}
       >
-        If floor isn't hit by 36h before session time, all holds are automatically released.
+        If the floor isn't hit within the 36hr timeframe before the session, all holds are automatically released.
       </div>
     </div>
   );

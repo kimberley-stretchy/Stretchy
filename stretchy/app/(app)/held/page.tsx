@@ -55,7 +55,7 @@ export default async function HeldPage() {
           marginBottom: 24,
         }}
       >
-        No charge until confirmed at the 36h gate.
+        No charge until confirmed within the 36hr timeframe.
       </div>
 
       {!holds?.length ? (

@@ -24,11 +24,13 @@ function LoginForm() {
   const tabActiveBg = isHost ? '#F5EDE3' : '#1A1A1A';
   const tabActiveFg = isHost ? '#1A1A1A' : '#F5EDE3';
 
+  const next = isHost ? '/host' : '/home';
+
   const signInWithGoogle = async () => {
     setLoading(true);
     await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
+      options: { redirectTo: `${window.location.origin}/auth/callback?next=${next}` },
     });
   };
 
@@ -37,7 +39,7 @@ function LoginForm() {
     setLoading(true);
     await supabase.auth.signInWithOtp({
       email: email.trim().toLowerCase(),
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${next}` },
     });
     setLoading(false);
     setSent(true);

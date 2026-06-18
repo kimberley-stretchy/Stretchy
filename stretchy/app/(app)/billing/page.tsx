@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase-server';
 import { BillingForm } from './BillingForm';
+import Link from 'next/link';
 
 export default async function BillingPage() {
   const supabase = await createClient();
@@ -25,7 +26,7 @@ export default async function BillingPage() {
       <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: 15, color: '#666', margin: '0 0 32px', lineHeight: 1.5 }}>
         {hasCard
           ? 'Your card is saved. You can update it below.'
-          : "Required to hold a spot. You're only charged if a session confirms at the 36h gate."}
+          : "Required to hold a spot. You're only charged if a session confirms within the 36hr timeframe."}
       </p>
 
       {hasCard && (
@@ -39,6 +40,23 @@ export default async function BillingPage() {
       )}
 
       <BillingForm hasCard={hasCard} />
+
+      {!hasCard && (
+        <Link
+          href="/home"
+          style={{
+            display: 'block',
+            textAlign: 'center',
+            marginTop: 16,
+            fontFamily: "'Space Grotesk', system-ui, sans-serif",
+            fontSize: 14,
+            color: 'rgba(26,26,26,0.45)',
+            textDecoration: 'none',
+          }}
+        >
+          Skip for now → browse sessions
+        </Link>
+      )}
     </div>
   );
 }

@@ -60,9 +60,25 @@ export default function ApplyPage() {
           >
             Application sent 🎯
           </h2>
-          <p style={{ color: 'rgba(245,237,227,0.8)', fontSize: 16, lineHeight: 1.5, margin: 0 }}>
+          <p style={{ color: 'rgba(245,237,227,0.8)', fontSize: 16, lineHeight: 1.5, margin: '0 0 32px' }}>
             We'll review your application and be in touch within a few days.
           </p>
+          <button
+            onClick={() => window.location.href = '/home'}
+            style={{
+              background: '#F5EDE3',
+              color: '#1A1A1A',
+              border: 'none',
+              borderRadius: 9999,
+              padding: '16px 32px',
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: 15,
+              cursor: 'pointer',
+            }}
+          >
+            Back to home →
+          </button>
         </div>
       </div>
     );

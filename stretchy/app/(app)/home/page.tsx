@@ -6,7 +6,7 @@ const HOW_TO_STRETCHY = [
   { lead: 'A host lists a session.', body: 'They set a minimum to make it viable, a max capacity and a price target. Price starts at its max.' },
   { lead: 'Hold your spot.', body: 'No charge yet. You see the most you\'d ever pay and how many people are needed to go ahead.' },
   { lead: 'The more who hold, the lower the price.', body: 'Every new hold splits the cost. Price drops live. Tell a mate, tell a random, invite a date.' },
-  { lead: '36 hours out — go or no go.', body: 'Minimum met? Confirmed, and you\'re locked in. If not, all holds are released. No charge.' },
+  { lead: '36hr timeframe — go or no go.', body: 'Minimum met? Confirmed, and you\'re locked in. If not, all holds are released. No charge.' },
   { lead: 'Drops till 2 hours out, then doors close.', body: 'More people can still join and push the price down. At 2 hours out your card is charged at the final price.' },
   { lead: 'Show up. Move. Social stretch.', body: '✌️', celebrate: true },
 ];
