@@ -10,7 +10,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   const [{ data: host }, { data: attendee }] = await Promise.all([
     supabase.from('hosts').select('id').eq('auth_user_id', user.id).single(),
-    supabase.from('attendees').select('name').eq('auth_user_id', user.id).single(),
+    supabase.from('attendees').select('id, name').eq('auth_user_id', user.id).single(),
   ]);
 
   const adminEmails = (process.env.ADMIN_EMAILS ?? '')
@@ -25,7 +25,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <BottomNav
         isHost={!!host}
         isAdmin={isAdmin}
-        userName={attendee?.name ?? user.email}
+        userName={attendee?.name ?? user.email ?? ''}
         userEmail={user.email ?? ''}
       />
     </div>
