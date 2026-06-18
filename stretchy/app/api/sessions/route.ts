@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   };
 
   if (gettingThere?.trim()) insertPayload.getting_there = gettingThere.trim();
-  if (socialStretch?.trim()) insertPayload.social_stretch = socialStretch.trim();
+  if (socialStretch?.trim()) insertPayload.social_stretch_venue = socialStretch.trim();
   if (Array.isArray(whatToBring) && whatToBring.length > 0) insertPayload.what_to_bring = whatToBring;
 
   const { data: session, error: insertError } = await supabase
