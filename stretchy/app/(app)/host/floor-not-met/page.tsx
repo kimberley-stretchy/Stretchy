@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { SMark } from '@/components/ui/SMark';
+import { FloorNotMetActions } from './FloorNotMetActions';
 
 export default async function FloorNotMetPage({
   searchParams,
@@ -159,35 +160,7 @@ export default async function FloorNotMetPage({
       </div>
 
       <div style={{ padding: '20px 16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
-        <div
-          style={{
-            background: '#FFFFFF',
-            borderRadius: 24,
-            padding: '20px 20px 20px',
-            border: '1.5px solid rgba(26,26,26,0.08)',
-            color: '#1A1A1A',
-          }}
-        >
-          <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Share it</div>
-          <p style={{ margin: '0 0 16px', fontSize: 14, color: 'rgba(26,26,26,0.65)', lineHeight: 1.5 }}>
-            Every share could be the hold that tips it.
-          </p>
-          <button
-            style={{
-              background: '#FF6B35',
-              color: '#F5EDE3',
-              border: '2px solid #FF6B35',
-              borderRadius: 999,
-              padding: '12px 24px',
-              fontFamily: "'Space Grotesk', system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: 14,
-              cursor: 'pointer',
-            }}
-          >
-            Copy share link
-          </button>
-        </div>
+        <FloorNotMetActions sessionId={sessionId} />
 
         <div
           style={{
@@ -218,36 +191,6 @@ export default async function FloorNotMetPage({
           >
             Adjust minimum →
           </Link>
-        </div>
-
-        <div
-          style={{
-            background: '#FFFFFF',
-            borderRadius: 24,
-            padding: '20px 20px 20px',
-            border: '1.5px solid rgba(26,26,26,0.08)',
-            color: '#1A1A1A',
-          }}
-        >
-          <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Cancel now</div>
-          <p style={{ margin: '0 0 16px', fontSize: 14, color: 'rgba(26,26,26,0.65)', lineHeight: 1.5 }}>
-            Release all holds. No one is charged.
-          </p>
-          <button
-            style={{
-              background: 'transparent',
-              color: '#E63946',
-              border: '2px solid #E63946',
-              borderRadius: 999,
-              padding: '12px 24px',
-              fontFamily: "'Space Grotesk', system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: 14,
-              cursor: 'pointer',
-            }}
-          >
-            Cancel session
-          </button>
         </div>
       </div>
 

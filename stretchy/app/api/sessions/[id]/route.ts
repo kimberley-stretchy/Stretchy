@@ -77,3 +77,43 @@ export async function PATCH(
 
   return NextResponse.json({ ok: true });
 }
+
+export async function DELETE(
+  _req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const { data: host } = await supabase
+    .from('hosts')
+    .select('id')
+    .eq('auth_user_id', user.id)
+    .single();
+  if (!host) return NextResponse.json({ error: 'Not a host' }, { status: 403 });
+
+  const { data: session } = await supabase
+    .from('sessions')
+    .select('id, host_id, state')
+    .eq('id', id)
+    .single();
+
+  if (!session || session.host_id !== host.id) {
+    return NextResponse.json({ error: 'Session not found' }, { status: 404 });
+  }
+
+  if (session.state === 'confirmed') {
+    return NextResponse.json({ error: 'Cannot cancel a confirmed session' }, { status: 409 });
+  }
+
+  await supabase.from('holds').update({ state: 'released' }).eq('session_id', id).eq('state', 'active');
+  const { error } = await supabase.from('sessions').update({ state: 'cancelled' }).eq('id', id);
+  if (error) return NextResponse.json({ error: 'Cancel failed' }, { status: 500 });
+
+  return NextResponse.json({ ok: true });
+}
