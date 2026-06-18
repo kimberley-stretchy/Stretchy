@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase-server';
 import Link from 'next/link';
 import { MOVEMENT_TYPES } from '@/lib/brand';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 const STRETCHY_FEE = 20;
 
@@ -30,7 +31,8 @@ export default async function HeldPage() {
 
   return (
     <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px' }}>
-      <div style={{ padding: '56px 0 8px' }}>
+      <div style={{ padding: '54px 0 8px', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <AppMenuButton />
         <h1
           style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",

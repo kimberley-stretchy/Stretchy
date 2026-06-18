@@ -8,11 +8,10 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   if (!user) redirect('/login');
 
-  const { data: host } = await supabase
-    .from('hosts')
-    .select('id')
-    .eq('auth_user_id', user.id)
-    .single();
+  const [{ data: host }, { data: attendee }] = await Promise.all([
+    supabase.from('hosts').select('id').eq('auth_user_id', user.id).single(),
+    supabase.from('attendees').select('name').eq('auth_user_id', user.id).single(),
+  ]);
 
   const adminEmails = (process.env.ADMIN_EMAILS ?? '')
     .split(',')
@@ -23,7 +22,12 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div style={{ background: '#F5EDE3', minHeight: '100dvh', paddingBottom: 80 }}>
       {children}
-      <BottomNav isHost={!!host} isAdmin={isAdmin} />
+      <BottomNav
+        isHost={!!host}
+        isAdmin={isAdmin}
+        userName={attendee?.name ?? user.email}
+        userEmail={user.email ?? ''}
+      />
     </div>
   );
 }

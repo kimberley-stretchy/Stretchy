@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 type NotifType = 'going_ahead' | 'cancelled' | 'floor_not_met' | 'rate_it' | string;
 
@@ -55,7 +56,7 @@ export default async function HostInboxPage() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
         <Link href="/host" style={{ width: 40, height: 40, borderRadius: 999, background: 'rgba(245,237,227,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F5EDE3', textDecoration: 'none', fontSize: 16 }}>←</Link>
         <div style={{ padding: '7px 14px', borderRadius: 999, background: 'rgba(245,237,227,0.15)', fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.14em' }}>HOST INBOX</div>
-        <div style={{ width: 40 }} />
+        <AppMenuButton color="#F5EDE3" />
       </div>
 
       <div style={{ padding: '28px 24px 0' }}>

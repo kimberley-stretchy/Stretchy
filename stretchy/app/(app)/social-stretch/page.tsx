@@ -1,8 +1,8 @@
 import { createClient } from '@/lib/supabase-server';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { SMark } from '@/components/ui/SMark';
 import { MOVEMENT_TYPES } from '@/lib/brand';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 interface Props {
   searchParams: Promise<{ sessionId?: string }>;
@@ -29,13 +29,11 @@ export default async function SocialStretchPage({ searchParams }: Props) {
     <div style={{ background: '#F5EDE3', minHeight: '100dvh', fontFamily: "'Space Grotesk', system-ui, sans-serif", paddingBottom: 120 }}>
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <Link href="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <SMark size={32} color="#1A1A1A" />
-        </Link>
+        <AppMenuButton />
         <div style={{ padding: '7px 14px', borderRadius: 999, background: '#2C8FE0', fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: '#F5EDE3' }}>
           SOCIAL STRETCH 🤙
         </div>
-        <div style={{ width: 32 }} />
+        <div style={{ width: 40 }} />
       </div>
 
       {/* Hero */}

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import { SMark } from '@/components/ui/SMark';
 import Link from 'next/link';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 export default async function CancelledPage({
   searchParams,
@@ -32,7 +33,7 @@ export default async function CancelledPage({
       fontFamily: "'Space Grotesk', system-ui, sans-serif",
       paddingBottom: 60,
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', padding: '54px 22px 0' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
         <Link
           href="/home"
           style={{
@@ -45,6 +46,7 @@ export default async function CancelledPage({
         >
           ←
         </Link>
+        <AppMenuButton />
       </div>
 
       <div style={{ padding: '36px 24px 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>

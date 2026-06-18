@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { MOVEMENT_TYPES } from '@/lib/brand';
 
 const STRETCHY_FEE = 23; // $20 + 15% GST
@@ -214,6 +215,24 @@ export default function NewSessionPage() {
             </div>
           </div>
         </div>
+
+        {step === 1 && (
+          <div style={{ marginBottom: 16 }}>
+            <Link
+              href="/host"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                color: '#666',
+                textDecoration: 'none',
+              }}
+            >
+              ← Back to host
+            </Link>
+          </div>
+        )}
 
         <Pips />
 

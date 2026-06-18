@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase-server';
 import { BillingForm } from './BillingForm';
 import Link from 'next/link';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 export default async function BillingPage() {
   const supabase = await createClient();
@@ -17,6 +18,9 @@ export default async function BillingPage() {
 
   return (
     <div style={{ maxWidth: 480, margin: '0 auto', padding: '56px 16px' }}>
+      <div style={{ marginBottom: 16 }}>
+        <AppMenuButton />
+      </div>
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', color: '#A535C7', marginBottom: 8 }}>
         PAYMENT
       </div>

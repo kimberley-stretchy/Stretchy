@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { GoingAheadActions } from './GoingAheadActions';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 const STRETCHY_FEE = 20;
 
@@ -43,7 +44,7 @@ export default async function GoingAheadPage({
       paddingBottom: 60,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <div style={{ flex: 1 }} />
+        <AppMenuButton color="#F5EDE3" />
         <span style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: 11, fontWeight: 700, letterSpacing: '0.18em',

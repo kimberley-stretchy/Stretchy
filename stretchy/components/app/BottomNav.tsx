@@ -1,22 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SMark } from '@/components/ui/SMark';
+import { MenuDrawer } from '@/components/app/MenuDrawer';
 
 interface BottomNavProps {
   isHost?: boolean;
   isAdmin?: boolean;
+  userName?: string;
+  userEmail?: string;
 }
 
 const attendeeItems = [
-  { href: '/home', label: 'Home', icon: HomeIcon },
   { href: '/sessions', label: 'Sessions', icon: SearchIcon },
   { href: '/held', label: 'My holds', icon: TicketIcon },
-  { href: '/profile', label: 'Profile', icon: UserIcon },
 ];
 
 const hostItems = [
-  { href: '/home', label: 'Home', icon: HomeIcon },
   { href: '/sessions', label: 'Sessions', icon: SearchIcon },
   { href: '/host', label: 'Host', icon: StarIcon },
   { href: '/profile', label: 'Profile', icon: UserIcon },
@@ -24,59 +26,86 @@ const hostItems = [
 
 const adminItem = { href: '/admin', label: 'Admin', icon: GearIcon };
 
-export function BottomNav({ isHost = false, isAdmin = false }: BottomNavProps) {
+export function BottomNav({ isHost = false, isAdmin = false, userName, userEmail }: BottomNavProps) {
   const path = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   const baseItems = isHost ? hostItems : attendeeItems;
   const navItems = isAdmin ? [...baseItems, adminItem] : baseItems;
 
+  const navItemStyle = (active: boolean): React.CSSProperties => ({
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 4,
+    padding: '12px 0',
+    textDecoration: 'none',
+    color: active ? '#FFD166' : 'rgba(245,237,227,0.4)',
+    transition: 'color 0.15s',
+  });
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 9,
+    fontWeight: 700,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
+  };
+
   return (
-    <nav
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        background: '#1A1A1A',
-        display: 'flex',
-        borderTop: '1px solid rgba(255,255,255,0.08)',
-        paddingBottom: 'env(safe-area-inset-bottom)',
-        zIndex: 50,
-      }}
-    >
-      {navItems.map(({ href, label, icon: Icon }) => {
-        const active = path === href || (href !== '/home' && path.startsWith(href + '/'));
-        return (
-          <Link
-            key={href}
-            href={href}
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 4,
-              padding: '12px 0',
-              textDecoration: 'none',
-              color: active ? '#FFD166' : 'rgba(245,237,227,0.4)',
-              transition: 'color 0.15s',
-            }}
-          >
-            <Icon size={22} />
-            <span
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 9,
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-              }}
+    <>
+      <MenuDrawer
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        userName={userName}
+        userEmail={userEmail}
+        isHost={isHost}
+      />
+      <nav
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: '#1A1A1A',
+          display: 'flex',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+          zIndex: 50,
+        }}
+      >
+        {/* S menu button — always first */}
+        <button
+          onClick={() => setMenuOpen((o) => !o)}
+          style={{
+            ...navItemStyle(menuOpen),
+            flex: 1,
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <SMark size={22} color={menuOpen ? '#FFD166' : 'rgba(245,237,227,0.4)'} />
+          <span style={labelStyle}>MENU</span>
+        </button>
+
+        {navItems.map(({ href, label, icon: Icon }) => {
+          const active = path === href || (href !== '/home' && path.startsWith(href + '/'));
+          return (
+            <Link
+              key={href}
+              href={href}
+              style={navItemStyle(active)}
             >
-              {label}
-            </span>
-          </Link>
-        );
-      })}
-    </nav>
+              <Icon size={22} />
+              <span style={labelStyle}>
+                {label}
+              </span>
+            </Link>
+          );
+        })}
+      </nav>
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
 import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { SMark } from '@/components/ui/SMark';
 import { FloorNotMetActions } from './FloorNotMetActions';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 
 export default async function FloorNotMetPage({
@@ -56,9 +56,7 @@ export default async function FloorNotMetPage({
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '54px 22px 0' }}>
-        <Link href="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <SMark size={32} color="#F5EDE3" />
-        </Link>
+        <AppMenuButton color="#F5EDE3" />
         <div
           style={{
             padding: '7px 14px',
@@ -73,7 +71,7 @@ export default async function FloorNotMetPage({
         >
           FLOOR NOT MET
         </div>
-        <div style={{ width: 32 }} />
+        <div style={{ width: 40 }} />
       </div>
 
       <div style={{ padding: '48px 22px 0' }}>

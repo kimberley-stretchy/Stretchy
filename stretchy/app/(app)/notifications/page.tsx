@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase-server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { SMark } from '@/components/ui/SMark';
+import { AppMenuButton } from '@/components/app/AppMenuButton';
 
 type NotificationType = 'going_ahead' | 'cancelled' | 'rate_it' | 'floor_not_met';
 
@@ -76,18 +77,7 @@ export default async function NotificationsPage() {
         justifyContent: 'space-between',
         padding: '54px 22px 0',
       }}>
-        <Link
-          href="/home"
-          style={{
-            width: 40, height: 40, borderRadius: 999,
-            border: 'none', background: 'rgba(26,26,26,0.08)',
-            color: '#1A1A1A', fontSize: 16,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            textDecoration: 'none',
-          }}
-        >
-          ←
-        </Link>
+        <AppMenuButton />
         <div style={{
           padding: '7px 14px',
           borderRadius: 999,
