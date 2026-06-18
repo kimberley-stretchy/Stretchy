@@ -92,7 +92,9 @@ export async function GET(req: NextRequest) {
           user_id: hold.user_id,
           type: 'going_ahead',
           session_id: session.id,
-          data: { title: session.title, price: finalPrice },
+          title: `${session.title} is going ahead`,
+          body: `Your spot is confirmed at $${finalPrice}/person.`,
+          is_read: false,
         });
       }
 
@@ -119,7 +121,9 @@ export async function GET(req: NextRequest) {
           user_id: h.user_id,
           type: 'cancelled',
           session_id: session.id,
-          data: { title: session.title },
+          title: `${session.title} didn't make the floor`,
+          body: 'Your hold has been released. No charge.',
+          is_read: false,
         });
       }
 

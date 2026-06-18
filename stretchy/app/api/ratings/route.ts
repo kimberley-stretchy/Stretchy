@@ -23,15 +23,23 @@ export async function POST(req: NextRequest) {
 
   if (!hold) return NextResponse.json({ error: 'No hold for this session' }, { status: 403 });
 
+  const { data: attendee } = await supabase
+    .from('attendees')
+    .select('id')
+    .eq('auth_user_id', user.id)
+    .single();
+
+  if (!attendee) return NextResponse.json({ error: 'Attendee profile not found' }, { status: 403 });
+
   const { error } = await supabase.from('ratings').upsert(
     {
       session_id: sessionId,
-      user_id: user.id,
+      attendee_id: attendee.id,
       stars,
-      vibes: vibes ?? [],
-      note: note?.trim() || null,
+      vibe_chips: vibes ?? [],
+      note_to_host: note?.trim() || null,
     },
-    { onConflict: 'session_id,user_id' }
+    { onConflict: 'session_id,attendee_id' }
   );
 
   if (error) {

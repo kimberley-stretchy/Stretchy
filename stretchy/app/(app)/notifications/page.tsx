@@ -9,8 +9,9 @@ interface Notification {
   id: string;
   type: NotificationType;
   session_id: string | null;
-  data: { title?: string; price?: number } | null;
-  read_at: string | null;
+  title: string | null;
+  body: string | null;
+  is_read: boolean;
   created_at: string;
 }
 
@@ -55,7 +56,7 @@ export default async function NotificationsPage() {
 
   const { data: notifications } = await supabase
     .from('notifications')
-    .select('id, type, session_id, data, read_at, created_at')
+    .select('id, type, session_id, title, body, is_read, created_at')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
     .limit(50);
@@ -142,8 +143,8 @@ export default async function NotificationsPage() {
           notifications.map((n: Notification) => {
             const color = TYPE_COLOR[n.type] ?? '#1A1A1A';
             const label = TYPE_LABEL[n.type] ?? n.type.toUpperCase();
-            const title = n.data?.title ?? 'Session';
-            const subtitle = n.data?.price != null ? `$${n.data.price}` : 'released';
+            const title = n.title ?? 'Session';
+            const subtitle = n.body ?? (n.type === 'cancelled' ? 'Released' : '');
             const href = notifLink(n);
 
             return (
@@ -207,7 +208,7 @@ export default async function NotificationsPage() {
                   </div>
 
                   {/* Unread dot */}
-                  {!n.read_at && (
+                  {!n.is_read && (
                     <div style={{
                       width: 8, height: 8,
                       borderRadius: '50%',

@@ -13,13 +13,20 @@ export async function POST(req: NextRequest) {
 
   const { movementType, neighbourhood, dayOfWeek, timeOfDay, note } = await req.json();
 
+  const { data: attendee } = await supabase
+    .from('attendees')
+    .select('id')
+    .eq('auth_user_id', user.id)
+    .single();
+
+  const preferredTime = [dayOfWeek, timeOfDay].filter(Boolean).join(' ') || null;
+
   const { error } = await supabase.from('suggestions').insert({
-    user_id: user.id,
-    movement_type: movementType ?? null,
-    neighbourhood: neighbourhood?.trim() || null,
-    day_of_week: dayOfWeek ?? null,
-    time_of_day: timeOfDay ?? null,
-    note: note?.trim() || null,
+    suggested_by_id: attendee?.id ?? null,
+    session_type: movementType ?? null,
+    preferred_neighbourhood: neighbourhood?.trim() || null,
+    preferred_time: preferredTime,
+    notes: note?.trim() || null,
   });
 
   if (error) {
