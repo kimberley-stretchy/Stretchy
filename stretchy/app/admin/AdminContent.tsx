@@ -156,7 +156,7 @@ function Avatar({ name, bg }: { name: string; bg: string }) {
 const AVATAR_COLORS = [purple, orange, olive, blue, green, '#4FB8E0', '#E63946', '#2A3FE0'];
 function avatarColor(index: number) { return AVATAR_COLORS[index % AVATAR_COLORS.length]; }
 
-export function AdminContent({ appMenuButton }: { appMenuButton: React.ReactNode }) {
+export function AdminContent({ appMenuButton, isAdmin = false }: { appMenuButton: React.ReactNode; isAdmin?: boolean }) {
   const [tab, setTab] = useState<Tab>('VETTING');
   const [applications, setApplications] = useState<Application[]>([]);
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
@@ -165,7 +165,7 @@ export function AdminContent({ appMenuButton }: { appMenuButton: React.ReactNode
   const [payoutSessions, setPayoutSessions] = useState<PayoutSession[]>([]);
   const [loadingAction, setLoadingAction] = useState<string | null>(null);
   const [paidSessionIds, setPaidSessionIds] = useState<Set<string>>(new Set());
-  const [authorized, setAuthorized] = useState<boolean | null>(null);
+  const [authorized, setAuthorized] = useState<boolean | null>(isAdmin ? true : null);
 
   // New tab state
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -176,24 +176,10 @@ export function AdminContent({ appMenuButton }: { appMenuButton: React.ReactNode
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
 
   useEffect(() => {
+    if (!isAdmin) return;
     const supabase = createClient();
 
     async function load() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      if (!user) {
-        window.location.href = '/login';
-        return;
-      }
-
-      const adminEmails = (process.env.NEXT_PUBLIC_ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase());
-      if (!adminEmails.includes(user.email?.toLowerCase() ?? '')) {
-        setAuthorized(false);
-        return;
-      }
-
       setAuthorized(true);
 
       const [appsRes, hostsStatusRes, liveRes, payoutsRes, suggestionsRes, chargedHoldsRes, financeSessionsRes, attendeesRes, hostsRes, allSessionsRes, allHoldsRes, allAttendeesRes, allHostsRes] = await Promise.all([

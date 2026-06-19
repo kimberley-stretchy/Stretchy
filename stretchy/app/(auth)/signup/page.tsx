@@ -4,25 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
 
-function StepDots({ step }: { step: number }) {
-  return (
-    <div style={{ display: 'flex', gap: 8, alignItems: 'center', justifyContent: 'center' }}>
-      {[1, 2, 3, 4].map((n) => (
-        <div
-          key={n}
-          style={{
-            width: n === step ? 24 : 8,
-            height: 8,
-            borderRadius: 9999,
-            background: n === step ? '#F5EDE3' : 'rgba(245,237,227,0.2)',
-            transition: 'all 0.25s',
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function SignupPage() {
   const supabase = createClient();
   const [email, setEmail] = useState('');
@@ -83,40 +64,30 @@ export default function SignupPage() {
           ←
         </Link>
         <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <StepDots step={1} />
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', opacity: 0.7 }}>
+            SIGN UP
+          </span>
         </div>
         <div style={{ width: 40 }} />
       </div>
 
       {/* Heading */}
       <div style={{ padding: '28px 24px 0' }}>
-        <p
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: '0.20em',
-            color: 'rgba(245,237,227,0.7)',
-            margin: 0,
-          }}
-        >
-          STEP 1 OF 4 · YOU
-        </p>
         <h1
           style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",
             fontWeight: 700,
-            fontSize: 44,
-            lineHeight: 0.95,
-            letterSpacing: '-0.02em',
-            margin: '10px 0 0',
+            fontSize: 52,
+            lineHeight: 0.92,
+            letterSpacing: '-0.03em',
+            margin: 0,
             color: '#F5EDE3',
           }}
         >
-          What should we call you?
+          Join<br />Stretchy.
         </h1>
-        <p style={{ margin: '10px 0 0', fontSize: 14, color: 'rgba(245,237,227,0.7)', lineHeight: 1.4 }}>
-          We&apos;ll only share your first name with hosts.
+        <p style={{ margin: '14px 0 0', fontSize: 15, color: 'rgba(245,237,227,0.75)', lineHeight: 1.4 }}>
+          We&apos;ll only share your first name with hosts. No password needed — we use a magic link.
         </p>
       </div>
 
