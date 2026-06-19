@@ -7,17 +7,23 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   const body = await req.json();
-  const { full_name, email, specialty, bio, instagram } = body;
+  const { specialty, bio, instagram, teaches, basedInNz } = body;
 
-  if (!full_name?.trim() || !email?.trim()) {
-    return NextResponse.json({ error: 'Name and email required' }, { status: 400 });
-  }
+  // Get name from attendees if not supplied
+  const { data: attendee } = await supabase
+    .from('attendees')
+    .select('name')
+    .eq('auth_user_id', user.id)
+    .single();
+
+  const fullName = attendee?.name ?? '';
+  const email = user.email ?? '';
 
   const { error } = await supabase.from('host_applications').insert({
     user_id: user.id,
-    email: email.trim().toLowerCase(),
-    full_name: full_name.trim(),
-    specialty: specialty || null,
+    email: email.toLowerCase(),
+    full_name: fullName,
+    specialty: teaches || specialty || null,
     bio: bio?.trim() || null,
     instagram: instagram?.trim() || null,
   });
