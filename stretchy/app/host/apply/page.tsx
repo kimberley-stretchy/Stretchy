@@ -84,7 +84,7 @@ export default function ApplyPage() {
       yearsActive ? `Years active: ${yearsActive}` : '',
     ].filter(Boolean).join('\n\n');
 
-    await fetch('/api/host/apply', {
+    const res = await fetch('/api/host/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -97,7 +97,7 @@ export default function ApplyPage() {
       }),
     });
     setLoading(false);
-    setDone(true);
+    if (res.ok) setDone(true);
   };
 
   if (done) {
