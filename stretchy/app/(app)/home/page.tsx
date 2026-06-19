@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase-server';
+import { redirect } from 'next/navigation';
 import { SMark } from '@/components/ui/SMark';
 import { AppMenuButton } from '@/components/app/AppMenuButton';
 import Link from 'next/link';
@@ -16,17 +17,13 @@ export default async function HomePage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  const { data: profile } = await supabase
-    .from('attendees')
-    .select('name')
-    .eq('auth_user_id', user!.id)
-    .single();
+  const [{ data: profile }, { data: host }, { count: holdCount }] = await Promise.all([
+    supabase.from('attendees').select('name').eq('auth_user_id', user!.id).single(),
+    supabase.from('hosts').select('id, name').eq('auth_user_id', user!.id).single(),
+    supabase.from('holds').select('id', { count: 'exact', head: true }).eq('user_id', user!.id).eq('state', 'active'),
+  ]);
 
-  const { count: holdCount } = await supabase
-    .from('holds')
-    .select('id', { count: 'exact', head: true })
-    .eq('user_id', user!.id)
-    .eq('state', 'active');
+  if (!!host) redirect('/host');
 
   const activeHolds = holdCount ?? 0;
   const firstName = profile?.name?.split(' ')[0];
@@ -110,7 +107,7 @@ export default async function HomePage() {
           </Link>
         )}
 
-        <Link href="/sessions" style={{ textDecoration: 'none' }}>
+        <Link href="/suggest" style={{ textDecoration: 'none' }}>
           <div style={{
             background: 'transparent', color: '#F5EDE3', borderRadius: 9999,
             padding: '20px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -119,18 +116,6 @@ export default async function HomePage() {
             <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: 18, fontWeight: 700 }}>Suggest a Stretchy</span>
             <span style={{ fontSize: 18 }}>→</span>
           </div>
-        </Link>
-
-        <Link href="/suggest" style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center' }}>
-          <span style={{
-            fontFamily: "'Space Grotesk', system-ui, sans-serif",
-            fontSize: 14,
-            color: '#F5EDE3',
-            opacity: 0.7,
-            padding: '8px 16px',
-          }}>
-            Suggest a session →
-          </span>
         </Link>
       </div>
 
