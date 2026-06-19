@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@/lib/supabase';
 
 const MONO = "'JetBrains Mono', monospace";
 const BODY = "'Space Grotesk', system-ui, sans-serif";
@@ -156,6 +155,94 @@ function Avatar({ name, bg }: { name: string; bg: string }) {
 const AVATAR_COLORS = [purple, orange, olive, blue, green, '#4FB8E0', '#E63946', '#2A3FE0'];
 function avatarColor(index: number) { return AVATAR_COLORS[index % AVATAR_COLORS.length]; }
 
+function AdminCreateSession({ hosts, onCreated }: { hosts: Host[]; onCreated: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [hostId, setHostId] = useState('');
+  const [title, setTitle] = useState('');
+  const [movementType, setMovementType] = useState('yoga');
+  const [startsAt, setStartsAt] = useState('');
+  const [location, setLocation] = useState('');
+  const [target, setTarget] = useState('200');
+  const [minSpots, setMinSpots] = useState('6');
+  const [maxSpots, setMaxSpots] = useState('16');
+  const [loading, setLoading] = useState(false);
+
+  const submit = async () => {
+    if (!hostId || !title || !startsAt || !location) return;
+    setLoading(true);
+    const res = await fetch('/api/admin/create-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hostId, title, movementType, startsAt, locationName: location, target, minSpots, maxSpots }),
+    });
+    setLoading(false);
+    if (res.ok) { setOpen(false); onCreated(); }
+  };
+
+  const inp: React.CSSProperties = {
+    width: '100%', padding: '10px 12px', borderRadius: 10,
+    border: AD_CARD, background: '#FFFFFF',
+    fontFamily: BODY, fontSize: 13, color: black, outline: 'none', boxSizing: 'border-box',
+  };
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        style={{
+          width: '100%', padding: '14px 0', borderRadius: 9999, border: 'none',
+          background: blue, color: '#F5EDE3',
+          fontFamily: BODY, fontWeight: 700, fontSize: 14, cursor: 'pointer',
+        }}
+      >
+        + Create test session
+      </button>
+    );
+  }
+
+  return (
+    <div style={{ padding: 16, borderRadius: 20, background: '#FFFFFF', border: AD_CARD }}>
+      <div style={{ fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: textDim, marginBottom: 12 }}>
+        CREATE TEST SESSION
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <select value={hostId} onChange={(e) => setHostId(e.target.value)} style={inp}>
+          <option value="">Select host…</option>
+          {hosts.map((h) => <option key={h.id} value={h.id}>{h.name} ({h.email})</option>)}
+        </select>
+        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Session title" style={inp} />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+          <select value={movementType} onChange={(e) => setMovementType(e.target.value)} style={inp}>
+            {['yoga','pilates','breath','sound','hiit','run','flow'].map((t) => <option key={t} value={t}>{t}</option>)}
+          </select>
+          <input type="datetime-local" value={startsAt} onChange={(e) => setStartsAt(e.target.value)} style={inp} />
+        </div>
+        <input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location name" style={inp} />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+          <div>
+            <div style={{ fontFamily: MONO, fontSize: 9, color: textDim, letterSpacing: '0.12em', marginBottom: 4 }}>TARGET $</div>
+            <input value={target} onChange={(e) => setTarget(e.target.value)} type="number" style={inp} />
+          </div>
+          <div>
+            <div style={{ fontFamily: MONO, fontSize: 9, color: textDim, letterSpacing: '0.12em', marginBottom: 4 }}>MIN SPOTS</div>
+            <input value={minSpots} onChange={(e) => setMinSpots(e.target.value)} type="number" style={inp} />
+          </div>
+          <div>
+            <div style={{ fontFamily: MONO, fontSize: 9, color: textDim, letterSpacing: '0.12em', marginBottom: 4 }}>MAX SPOTS</div>
+            <input value={maxSpots} onChange={(e) => setMaxSpots(e.target.value)} type="number" style={inp} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button onClick={() => setOpen(false)} style={{ flex: 1, padding: '12px 0', borderRadius: 9999, border: AD_CARD, background: 'transparent', fontFamily: BODY, fontWeight: 700, fontSize: 13, cursor: 'pointer' }}>Cancel</button>
+          <button onClick={submit} disabled={loading || !hostId || !title || !startsAt || !location} style={{ flex: 2, padding: '12px 0', borderRadius: 9999, border: 'none', background: black, color: '#F5EDE3', fontFamily: BODY, fontWeight: 700, fontSize: 13, cursor: 'pointer' }}>
+            {loading ? 'Creating…' : 'Create session →'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function AdminContent({ appMenuButton, isAdmin = false }: { appMenuButton: React.ReactNode; isAdmin?: boolean }) {
   const [tab, setTab] = useState<Tab>('VETTING');
   const [applications, setApplications] = useState<Application[]>([]);
@@ -177,98 +264,47 @@ export function AdminContent({ appMenuButton, isAdmin = false }: { appMenuButton
 
   useEffect(() => {
     if (!isAdmin) return;
-    const supabase = createClient();
 
     async function load() {
       setAuthorized(true);
+      const res = await fetch('/api/admin/data');
+      if (!res.ok) { setAuthorized(false); return; }
+      const d = await res.json();
 
-      const [appsRes, hostsStatusRes, liveRes, payoutsRes, suggestionsRes, chargedHoldsRes, financeSessionsRes, attendeesRes, hostsRes, allSessionsRes, allHoldsRes, allAttendeesRes, allHostsRes] = await Promise.all([
-        supabase.from('host_applications').select('*').order('created_at', { ascending: false }),
-        supabase.from('hosts').select('auth_user_id, status'),
-        supabase
-          .from('sessions')
-          .select('*, host:hosts(name), holds(count)')
-          .in('state', ['open', 'confirmed'])
-          .order('starts_at'),
-        supabase
-          .from('sessions')
-          .select('*, host:hosts(name)')
-          .eq('state', 'confirmed')
-          .order('starts_at'),
-        // SUGGESTIONS
-        supabase
-          .from('suggestions')
-          .select('*')
-          .order('vote_count', { ascending: false }),
-        // FINANCES - charged holds
-        supabase
-          .from('holds')
-          .select('id, amount_charged_nzd, state, created_at, session:sessions(title)')
-          .eq('state', 'charged')
-          .order('created_at', { ascending: false })
-          .limit(50),
-        // FINANCES - sessions
-        supabase
-          .from('sessions')
-          .select('id, title, state, host_paid_at')
-          .in('state', ['confirmed', 'completed']),
-        // ATTENDEES
-        supabase
-          .from('attendees')
-          .select('*')
-          .order('created_at', { ascending: false }),
-        // HOSTS
-        supabase
-          .from('hosts')
-          .select('id, name, email, vetting_status, created_at, sessions_hosted, rating_average, rating_count')
-          .order('created_at', { ascending: false }),
-        // ANALYTICS - all sessions
-        supabase.from('sessions').select('id, state'),
-        // ANALYTICS - all holds
-        supabase.from('holds').select('id, state'),
-        // ANALYTICS - attendees count
-        supabase.from('attendees').select('id'),
-        // ANALYTICS - hosts count
-        supabase.from('hosts').select('id'),
-      ]);
+      setApplications(d.applications ?? []);
 
-      setApplications(appsRes.data ?? []);
-
-      const hostStatuses = hostsStatusRes.data ?? [];
-      const approved = new Set(hostStatuses.filter((h) => h.status !== 'rejected').map((h) => h.auth_user_id));
-      const rejected = new Set(hostStatuses.filter((h) => h.status === 'rejected').map((h) => h.auth_user_id));
+      const hostStatuses = d.hostsStatus ?? [];
+      const approved = new Set<string>(hostStatuses.filter((h: {status: string | null}) => h.status !== 'rejected').map((h: {auth_user_id: string}) => h.auth_user_id));
+      const rejected = new Set<string>(hostStatuses.filter((h: {status: string | null}) => h.status === 'rejected').map((h: {auth_user_id: string}) => h.auth_user_id));
       setApprovedIds(approved);
       setRejectedIds(rejected);
 
-      setLiveSessions((liveRes.data as LiveSession[]) ?? []);
-      setPayoutSessions((payoutsRes.data as PayoutSession[]) ?? []);
+      setLiveSessions((d.liveSessions as LiveSession[]) ?? []);
+      setPayoutSessions((d.payoutSessions as PayoutSession[]) ?? []);
+      setSuggestions((d.suggestions as Suggestion[]) ?? []);
+      setChargedHolds((d.chargedHolds as Hold[]) ?? []);
+      setFinanceSessions((d.financeSessions as FinanceSession[]) ?? []);
+      setAttendees((d.attendees as Attendee[]) ?? []);
+      setHosts((d.hosts as Host[]) ?? []);
 
-      setSuggestions((suggestionsRes.data as Suggestion[]) ?? []);
-      setChargedHolds((chargedHoldsRes.data as Hold[]) ?? []);
-      setFinanceSessions((financeSessionsRes.data as FinanceSession[]) ?? []);
-      setAttendees((attendeesRes.data as Attendee[]) ?? []);
-      setHosts((hostsRes.data as Host[]) ?? []);
-
-      // Build analytics
-      const allSessions = allSessionsRes.data ?? [];
-      const allHolds = allHoldsRes.data ?? [];
+      const allSessions = d.allSessions ?? [];
+      const allHolds = d.allHolds ?? [];
       const sessionsByState: Record<string, number> = {};
       for (const s of allSessions) {
         sessionsByState[s.state] = (sessionsByState[s.state] ?? 0) + 1;
       }
-      const confirmedHolds = allHolds.filter((h) => h.state === 'charged').length;
       setAnalytics({
         totalSessions: allSessions.length,
         sessionsByState,
         totalHolds: allHolds.length,
-        confirmedHolds,
-        totalAttendees: allAttendeesRes.data?.length ?? 0,
-        totalHosts: allHostsRes.data?.length ?? 0,
+        confirmedHolds: allHolds.filter((h: {state: string}) => h.state === 'charged').length,
+        totalAttendees: d.totalAttendees ?? 0,
+        totalHosts: d.totalHosts ?? 0,
       });
     }
 
     load();
-  }, []);
+  }, [isAdmin]);
 
   async function handleApprove(app: Application) {
     setLoadingAction(app.id + '-approve');
@@ -546,8 +582,11 @@ export function AdminContent({ appMenuButton, isAdmin = false }: { appMenuButton
       {/* ── LIVE ── */}
       {tab === 'LIVE' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '0 14px' }}>
+          {/* Admin quick-create session */}
+          <AdminCreateSession hosts={hosts} onCreated={() => window.location.reload()} />
+
           {liveSessions.length === 0 ? (
-            <p style={{ color: '#666', padding: '0 8px' }}>No live sessions.</p>
+            <p style={{ fontFamily: MONO, fontSize: 11, color: textDim, letterSpacing: '0.10em', padding: '8px 4px' }}>NO LIVE SESSIONS YET</p>
           ) : (
             liveSessions.map((s) => {
               const holdCount = s.holds?.[0]?.count ?? 0;
