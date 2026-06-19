@@ -17,7 +17,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     .split(',')
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
-  const isAdmin = adminEmails.includes(user.email?.toLowerCase() ?? '');
+  const isAdmin = !!host && adminEmails.includes(user.email?.toLowerCase() ?? '');
 
   return (
     <div style={{ background: '#F5EDE3', minHeight: '100dvh', paddingBottom: 80 }}>

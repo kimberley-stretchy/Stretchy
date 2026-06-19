@@ -194,11 +194,29 @@ export function MenuDrawer({
           <MenuLink href="/notifications" label="Notifications" style={linkStyle} onClick={onClose} />
 
           <a
-            href="mailto:hello@stretchy.nz"
+            href="mailto:kimberley@stretchyyoga.co.nz"
             style={linkStyle}
             onClick={onClose}
           >
-            Contact Stretchy
+            📧 Email Stretchy
+          </a>
+          <a
+            href="https://www.instagram.com/stretchy.social"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+            onClick={onClose}
+          >
+            📷 @stretchy.social
+          </a>
+          <a
+            href="https://www.tiktok.com/@stretchy.yoga"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+            onClick={onClose}
+          >
+            🎵 @stretchy.yoga
           </a>
 
           <div style={{ borderTop: '1px solid rgba(26,26,26,0.07)', margin: '8px 0' }} />

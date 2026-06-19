@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { SMark } from '@/components/ui/SMark';
 import { MOVEMENT_TYPES } from '@/lib/brand';
 
 export default function ApplyPage() {
+  const router = useRouter();
   const [form, setForm] = useState({
     full_name: '',
     email: '',
@@ -85,20 +88,35 @@ export default function ApplyPage() {
   }
 
   return (
-    <div style={{ background: '#F5EDE3', minHeight: '100dvh' }}>
-      <div style={{ maxWidth: 520, margin: '0 auto', padding: '56px 24px' }}>
-        <div
+    <div style={{ background: '#F5EDE3', minHeight: '100dvh', paddingBottom: 80 }}>
+      {/* Header nav */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '54px 22px 0',
+      }}>
+        <button
+          onClick={() => router.back()}
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: '0.2em',
-            color: '#A535C7',
-            marginBottom: 8,
+            width: 40, height: 40, borderRadius: 999, border: 'none',
+            background: 'rgba(26,26,26,0.08)', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 18, color: '#1A1A1A',
           }}
         >
-          APPLY TO HOST
-        </div>
+          ←
+        </button>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
+          letterSpacing: '0.16em', color: '#A535C7',
+        }}>HOST APPLICATION</div>
+        <Link href="/home" style={{ display: 'flex', alignItems: 'center' }}>
+          <SMark size={32} color="#1A1A1A" />
+        </Link>
+      </div>
+
+      <div style={{ maxWidth: 520, margin: '0 auto', padding: '24px 24px 0' }}>
         <h1
           style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",
